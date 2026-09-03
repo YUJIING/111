@@ -146,10 +146,6 @@
       </section>
 
       <section data-page-node-id="fschedule01" class="view" data-title="日程习惯" id="view-schedule">
-        <div data-page-node-id="fstab01" class="schedule-tabs" role="tablist">
-          <button data-page-node-id="fstabbtn01" class="tab active" data-pane="planner" type="button"><svg data-page-node-id="fstabic01"><use data-page-node-id="fstabic01u" href="#i-calendar"/></svg><span data-page-node-id="fstabtx01">日程安排</span></button>
-          <button data-page-node-id="fstabbtn02" class="tab" data-pane="habit" type="button"><svg data-page-node-id="fstabic02"><use data-page-node-id="fstabic02u" href="#i-habit"/></svg><span data-page-node-id="fstabtx02">习惯打卡</span></button>
-        </div>
         <div class="pane pane-planner">
 <div data-page-node-id="WvIn3jlZQkyHo0rT70KFgu" class="module-layout">
           <article data-page-node-id="gI8dtL2VlBHlSg9eHo8V5d" class="panel form-panel"><div data-page-node-id="UFDI3qoUvTQM6zvypZqrnZ" class="panel-head"><div data-page-node-id="PyJ70So9TywKsSPuL8zmLF"><p data-page-node-id="dRKlIfhwYfipjLpuSK4kph" class="eyebrow"><!--pnid:mfqMvsNJ55t8HCf3lRsE60-->提醒事项</p><h2 data-page-node-id="5JrZpt9bkoNIHc4ScIzStW"><!--pnid:aUi10M7CblY7nyLHS7Dq95-->添加待办</h2></div><span data-page-node-id="zoRw3oWWbncuMufyG7EdHM" class="draft-status" data-draft-for="plannerForm"><!--pnid:zoues9DTaPUBiYN1DTJUyr-->草稿自动保存</span></div><form data-page-node-id="9ZI6g6htXCfbxQwbRp0joI" data-draft="plannerForm" id="plannerForm">
@@ -168,7 +164,8 @@
         </div>
 
         </div>
-        <div class="pane pane-habit hidden">
+        <h2 class="schedule-divider">习惯打卡</h2>
+        <div class="pane pane-habit">
 <style data-page-node-id="c5lE9jF9lNoBFZQ3FYoxaY" data-pnid-children="h8a5Sw9pKHwU4KVcymi1KS">.habit-layout{display:grid;grid-template-columns:minmax(0,1fr);gap:18px}.habit-layout .panel{border-color:transparent;background:transparent;box-shadow:none;padding:0}.daily-habits{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px}
   .field textarea{width:100%;min-height:96px;padding:10px 12px;border:1px solid rgba(85,69,55,.25);border-radius:11px;outline:0;background:transparent;font:inherit;resize:vertical;transition:.2s;color:inherit}
   .field textarea:focus{border-color:#92748a;box-shadow:0 0 0 3px rgba(77,48,69,.07)}
@@ -245,6 +242,12 @@
   .view-schedule .pane-planner.hidden{display:none}
   body.has-wallpaper .schedule-tabs{background:transparent;border-color:rgba(255,255,255,.4)}
   body.has-wallpaper .schedule-tabs .tab.active{background:#fffdfa;box-shadow:0 2px 8px rgba(50,40,30,.12)}
+  .schedule-divider{font-size:19px;font-weight:700;color:var(--ink);margin:28px 0 16px;text-shadow:0 1px 3px rgba(255,255,255,.85)}
+  .view-schedule .pane{display:block}
+  .task-row{transition:background .18s,border-radius .18s}
+  .task-row.p-high:hover{background:rgba(196,60,52,.16);box-shadow:inset 0 0 0 1px rgba(196,60,52,.25)}
+  .task-row.p-normal:hover{background:rgba(212,170,42,.20);box-shadow:inset 0 0 0 1px rgba(196,150,30,.22)}
+  .task-row.p-low:hover{background:rgba(74,118,205,.18);box-shadow:inset 0 0 0 1px rgba(74,118,205,.22)}
 </style>
         <div data-page-node-id="Xp2oXw8y7LwT1n3vaAGbSl" class="habit-layout">
           <article data-page-node-id="MsjQdPdJSl7EeVFm6grYnm" class="panel"><div data-page-node-id="ceJiYoVqaoRXt4bkXHg2Fn" class="panel-head"><div data-page-node-id="dX0F41iJBryPrIf1hlQ99h"><p data-page-node-id="2bKNfpDwSiqpkJQHtheyc6" class="eyebrow"><!--pnid:uFyYso84dytxw3j5PaGvH5-->今天打卡</p><h2 data-page-node-id="WkJsPCbxNtJUVagTZzaP7K"><!--pnid:sPyUlF8KBcEYIlNpuEj9Bi-->完成一点，就算前进</h2></div><div data-page-node-id="w2DabS3eOHYudbpZ8CAAGH" class="panel-actions"><span data-page-node-id="qFmwG68cKev1zxTzSOjchm" class="mini-note"><!--pnid:vhS94nuqK56CNJqnFlUPvZ-->每次点击立即保存</span><button data-page-node-id="G2ZKyqjj9l56zRJMjbq05p" class="btn ghost compact" data-action="open-habit-settings"><svg data-page-node-id="2f5GvafcwC8JkFGIM8KUoC"><use data-page-node-id="kYSE4Dg8iqC4FldmqzvL0D" href="#i-plus"/></svg><!--pnid:sjzMVcjM3j0hVvmnPiNHbL-->新增习惯</button></div></div><div data-page-node-id="o69vej7nGyOCbXtWrOy2LO" class="daily-habits" id="dailyHabitList"></div></article>
@@ -282,7 +285,7 @@
         <div class="module-layout">
           <article class="panel form-panel"><div class="panel-head"><div><p class="eyebrow">生活小记</p><h2>记下今天</h2></div><span class="draft-status" data-draft-for="momentForm">草稿自动保存</span></div>
             <form data-draft="momentForm" id="momentForm">
-              <div class="segmented"><label><input checked name="mood" type="radio" value="开心"><span>开心</span></label><label><input name="mood" type="radio" value="平静"><span>平静</span></label><label><input name="mood" type="radio" value="烦恼"><span>烦恼</span></label><label><input name="mood" type="radio" value="低落"><span>低落</span></label></div>
+              <input type="hidden" name="mood" value="平静">
               <div class="form-row"><label class="field"><span>日期</span><input name="date" required type="date"></label></div>
               <label class="field"><span>想记点什么</span><textarea maxlength="500" name="note" placeholder="当天的小事、心情，或者一点点烦恼，都可以放在这里" rows="4"></textarea></label>
               <label class="cover-upload" id="momentPhotoUpload"><input accept="image/*" id="momentPhotoInput" type="file"><span><svg><use href="#i-camera"/></svg><b>附一张生活小照（可选）</b><small>自动压缩后保存，本机与云端同步</small></span></label>
@@ -298,7 +301,7 @@
         </div>
 
         <hr style="border:0;border-top:1px dashed rgba(85,69,55,.18);margin:24px 0">
-        <div data-page-node-id="fmediahead" class="module-layout media-layout">
+        <div data-page-node-id="fmediahead" class="media-section">
           <h2 style="margin:8px 0 16px">书影音收藏</h2>
 <div data-page-node-id="ADL8zEmacvdSidCdcbpGCf" class="module-layout media-layout">
           <article data-page-node-id="sE4VoDYTJkEqlUfmfQe16O" class="panel form-panel"><div data-page-node-id="HOYrDhntWekiU6js4gxhTu" class="panel-head"><div data-page-node-id="yqvBX7VrCoip2v81ZdmgPX"><p data-page-node-id="85rWJ1lSiZwp6eX6zA4rVa" class="eyebrow"><!--pnid:JzRjMAHbZIko35jLVsPNGP-->我的精神收藏</p><h2 data-page-node-id="vBAk0saNzn7DobF7tmiFL2"><!--pnid:FVpdQOQL7izjgCBHb0yH9U-->记下一部作品</h2></div><span data-page-node-id="OM4jcUYQ2FIEbuTyHllW4i" class="draft-status" data-draft-for="mediaForm"><!--pnid:eZvaf1LTAev9whvM0dmc5A-->草稿自动保存</span></div><form data-page-node-id="QRtBNazHZJEJlWsyInQigE" data-draft="mediaForm" id="mediaForm">
@@ -318,6 +321,21 @@
 
         </div>
       </section>
+
+      <div class="settings-backdrop" hidden id="momentEdit">
+        <section aria-modal="true" class="settings-sheet" role="dialog" style="max-width:520px">
+          <div class="settings-head"><div><p class="eyebrow">编辑小记</p><h2>修改这条小记</h2></div><button aria-label="关闭" class="sheet-close" data-action="close-moment-edit" type="button">×</button></div>
+          <form id="momentEditForm">
+            <div class="form-row"><label class="field"><span>日期</span><input name="date" required type="date"></label></div>
+            <label class="field"><span>内容</span><textarea maxlength="500" name="note" placeholder="当天的小事、心情，或者一点点烦恼，都可以放在这里" rows="4"></textarea></label>
+            <div class="moment-edit-photo">
+              <label class="cover-upload" id="momentEditPhotoUpload"><input accept="image/*" id="momentEditPhotoInput" type="file"><span><svg><use href="#i-camera"/></svg><b>更换生活小照（可选）</b><small>不选则保留原图</small></span></label>
+              <button class="btn ghost" id="momentEditPhotoRemove" type="button" style="margin-top:8px">移除这张照片</button>
+            </div>
+            <div style="display:flex;gap:10px;margin-top:4px"><button class="btn primary" type="submit" style="flex:1">保存修改</button></div>
+          </form>
+        </section>
+      </div>
 
       <section data-page-node-id="VpNG7TV4ofzHHg344UmGVf" class="view" data-title="留言板" id="view-quotes">
         <div data-page-node-id="kc1hjJUboq6SLWP4F3Kkiq" class="quotes-wrap">
@@ -593,9 +611,15 @@
     props["风格"] = { select: m.style || '原图' };
     dbAdd(DB_MOMENTS, props, function(rid){ if(rid){ m.remoteId = rid; saveState(); } });
   }
-  function updateRemoteMoment(m){
+  function updateRemoteMoment(m, fields){
     if (!ONLINE || LOCAL_ONLY || !m.remoteId) return;
-    dbUpdate(DB_MOMENTS, m.remoteId, { "心情": { select: m.mood || '平静' }, "内容": { text: m.note || "" }, "风格": { select: m.style || '原图' } });
+    var update = {};
+    if(!fields || fields.indexOf('mood')>-1) update["心情"] = { select: m.mood || '平静' };
+    if(!fields || fields.indexOf('note')>-1) update["内容"] = { text: m.note || "" };
+    if(!fields || fields.indexOf('style')>-1) update["风格"] = { select: m.style || '原图' };
+    if(!fields || fields.indexOf('date')>-1) update["日期"] = { date: m.date };
+    if(!fields || fields.indexOf('img')>-1) update["照片"] = { text: m.img || "" };
+    dbUpdate(DB_MOMENTS, m.remoteId, update);
   }
   function deleteRemoteMoment(m){ if(m && m.remoteId) dbDelete(DB_MOMENTS, m.remoteId); }
   function deleteRemoteQuote(rid){ if(rid) dbDelete(DB_QUOTES, rid); }
@@ -1012,7 +1036,7 @@
 
 function setSchedulePane(pane){const tabs=document.querySelectorAll('.schedule-tabs .tab');const panes=document.querySelectorAll('.view-schedule .pane');tabs.forEach(t=>t.classList.toggle('active',t.dataset.pane===pane));panes.forEach(p=>p.classList.toggle('hidden',!p.classList.contains('pane-'+pane)));}
 document.addEventListener('click',e=>{const tab=e.target.closest('.schedule-tabs .tab');if(tab){setSchedulePane(tab.dataset.pane);}});document.addEventListener('click',function(e){const ai=e.target.closest('[data-action="moment-style-ai"]');if(ai){showToast(t('把这条小记的照片发到对话里（输入"用AI生成"），我用艺术海报生成技能生成新图后传回，即可上传替换。'));return;}const orig=e.target.closest('[data-action="moment-style-original"]');if(orig){const id=orig.dataset.id;const m=(state.moments||[]).find(x=>x.id===id);if(m){m.style='原图';updateRemoteMoment(m);renderMoments();showToast(t('已切回原图。'));}}});
-const _origSwitchView=switchView;switchView=function(view){_origSwitchView(view);if(view==='schedule')setSchedulePane('planner');};
+const _origSwitchView=switchView;switchView=function(view){_origSwitchView(view);};
 
   function formatDateHeading(value){if(value===isoDate())return t('今天');if(value===shiftDate(-1))return t('昨天');const date=new Date(`${value}T00:00:00`);return LANG==='en'?new Intl.DateTimeFormat('en-US',{month:'short',day:'numeric'}).format(date):`${date.getMonth()+1} 月 ${date.getDate()} 日`;}
   function titleFor(record){const d=record.data||{},local=value=>record.sample?translateText(value):value;if(record.type==='money')return d.note?local(d.note):t(d.category||'一笔收支');if(record.type==='planner')return d.title?local(d.title):t('一项日程');if(record.type==='fitness')return d.note?local(d.note):t('身体记录');if(record.type==='home')return d.name?local(d.name):t('待买物品');if(record.type==='journal'){const raw=String(d.note||'');return raw?local(raw.length>26?raw.slice(0,26)+'…':raw):t('一条小记');}return t('生活记录');}
@@ -1021,7 +1045,7 @@ const _origSwitchView=switchView;switchView=function(view){_origSwitchView(view)
   function recordDetailHtml(record){if(record.type!=='home')return escapeHtml(detailFor(record));const d=record.data||{},quantity=record.sample?localizedHtml(d.quantity||'数量未填'):userHtml(d.quantity||t('数量未填'));return`${quantity} · ${localizedHtml(d.category||'未分类')} · ${t(d.bought?'已买':'待买')}`;}
   function recordTitleHtml(record){if(record.sample)return localizedHtml(titleFor(record));const raw=titleFor(record);const translated=translateText(raw);return translated!==raw?translated:userHtml(raw);}
   function empty(message){return`<div class="empty-state">${localizedHtml(message)}</div>`;}
-  function taskRow(record,deletable=false){const d=record.data;const overdue=!d.done&&record.date<isoDate(),title=record.sample?(LANG==='en'&&d.titleEn?d.titleEn:localizedHtml(d.title)):userHtml(d.title),note=record.sample?localizedHtml(d.note||''):userHtml(d.note||'');return`<div class="task-row ${d.done?'done':''} ${overdue?'overdue':''}"><button class="check-btn ${d.done?'checked':''}" data-action="toggle-task" data-id="${record.id}" aria-label="${t('切换完成状态')}">${d.done?icon('i-check'):''}</button><span class="task-title">${title} <i class="list-tag">${localizedHtml(d.list||'生活')}</i><small>${note}${d.remind?` · ${t('到时提醒')}`:''}</small></span><span class="task-time">${overdue?t('已逾期'):escapeHtml(d.time||t('全天'))}</span><span class="priority-flag ${d.priority==='high'?'high':''}"></span>${deletable?`<button class="delete-btn" data-action="delete" data-id="${record.id}" aria-label="${t('删除')}">${icon('i-trash')}</button>`:''}</div>`;}
+  function taskRow(record,deletable=false){const d=record.data;const overdue=!d.done&&record.date<isoDate(),title=record.sample?(LANG==='en'&&d.titleEn?d.titleEn:localizedHtml(d.title)):userHtml(d.title),note=record.sample?localizedHtml(d.note||''):userHtml(d.note||'');return`<div class="task-row p-${d.priority||'normal'} ${d.done?'done':''} ${overdue?'overdue':''}"><button class="check-btn ${d.done?'checked':''}" data-action="toggle-task" data-id="${record.id}" aria-label="${t('切换完成状态')}">${d.done?icon('i-check'):''}</button><span class="task-title">${title} <i class="list-tag">${localizedHtml(d.list||'生活')}</i><small>${note}${d.remind?` · ${t('到时提醒')}`:''}</small></span><span class="task-time">${overdue?t('已逾期'):escapeHtml(d.time||t('全天'))}</span><span class="priority-flag ${d.priority==='high'?'high':''}"></span>${deletable?`<button class="delete-btn" data-action="delete" data-id="${record.id}" aria-label="${t('删除')}">${icon('i-trash')}</button>`:''}</div>`;}
   function recordRow(record){const meta=TYPE_META[record.type]||TYPE_META.home;const flowClass=record.type==='money'?record.data.flow:'';return`<div class="record-row"><span class="record-icon ${meta.tone}">${icon(meta.icon)}</span><span class="record-main"><strong>${recordTitleHtml(record)}</strong><small>${escapeHtml(formatDateHeading(record.date))} · ${recordDetailHtml(record)}</small></span><span class="record-amount ${flowClass}">${escapeHtml(valueFor(record))}</span><button class="delete-btn" data-action="delete" data-id="${record.id}" aria-label="${t('删除')}">${icon('i-trash')}</button></div>`;}
 
   function habitNameHtml(habit){const def=HABIT_DEFS.find(d=>d.key===habit.key);if(def)return escapeHtml(resolveHabitName(def));return habit.sample?localizedHtml(habit.name):userHtml(habit.name);}
@@ -1203,13 +1227,48 @@ const _origSwitchView=switchView;switchView=function(view){_origSwitchView(view)
     var note=m.sample?localizedHtml(m.note||''):userHtml(m.note||'');
     var tools='';
     if(m.img){tools+=`<button class="mini-btn ${m.style==='AI艺术版'?'active':''}" data-action="moment-style-original" data-id="${m.id}" type="button">原图</button><button class="mini-btn ${m.style==='AI艺术版'?'active':''}" data-action="moment-style-ai" data-id="${m.id}" type="button">用AI生成</button><button class="mini-btn" data-action="moment-wallpaper" data-id="${m.id}" type="button">设为背景</button>`;}
+    tools+=`<button class="mini-btn" data-action="edit-moment" data-id="${m.id}" type="button">${icon('i-pen')}编辑</button>`;
     tools+=`<button class="delete-btn" data-action="delete-moment" data-id="${m.id}" aria-label="${t('删除')}">${icon('i-trash')}</button>`;
-    return`<article class="moment-card ${m.img?'has-photo':''}">${m.img?`<div class="moment-photo ${styleClass}"><img src="${m.img}" alt="生活小照"></div>`:''}<div class="moment-body"><div class="moment-head"><span class="mood-chip ${moodClass(m.mood)}">${t(m.mood||'平静')}</span><time>${escapeHtml(formatDateHeading(m.date))}</time></div>${m.note?`<p class="moment-note">${note}</p>`:''}<div class="moment-tools">${tools}</div></div></article>`;
+    return`<article class="moment-card ${m.img?'has-photo':''}">${m.img?`<div class="moment-photo ${styleClass}"><img src="${m.img}" alt="生活小照"></div>`:''}<div class="moment-body"><div class="moment-head"><time>${escapeHtml(formatDateHeading(m.date))}</time></div>${m.note?`<p class="moment-note">${note}</p>`:''}<div class="moment-tools">${tools}</div></div></article>`;
   }
   function renderMoments(){
     var list=[...(state.moments||[])].sort((a,b)=>((b.date||'').localeCompare(a.date||''))||((b.createdAt||0)-(a.createdAt||0)));
     document.getElementById('momentsList').innerHTML=list.length?list.slice(0,120).map(momentCard).join(''):empty('第一条小记，会从这里开始');
     var clearBtn=document.getElementById('wallpaperClearBtn');if(clearBtn)clearBtn.hidden=!state.settings.wallpaper;
+  }
+  var momentEditId=null,momentEditImg='',momentEditOriginalImg='';
+  function openMomentEdit(id){
+    var m=(state.moments||[]).find(x=>x.id===id);if(!m)return;
+    momentEditId=id;momentEditImg=m.img||'';momentEditOriginalImg=m.img||'';
+    var form=document.getElementById('momentEditForm');
+    form.elements.date.value=m.date||isoDate();
+    form.elements.note.value=m.note||'';
+    var up=document.getElementById('momentEditPhotoUpload');up.classList.toggle('has-cover',!!momentEditImg);up.querySelector('span').style.backgroundImage=momentEditImg?`url(${momentEditImg})`:'';up.querySelector('b').textContent=momentEditImg?'当前照片 · 点此更换':'附一张生活小照（可选）';
+    var rm=document.getElementById('momentEditPhotoRemove');if(rm)rm.style.display=momentEditImg?'':'none';
+    document.getElementById('momentEdit').hidden=false;
+  }
+  function closeMomentEdit(){var box=document.getElementById('momentEdit');if(box)box.hidden=true;momentEditId=null;}
+  function saveMomentEdit(){
+    var form=document.getElementById('momentEditForm');
+    var m=(state.moments||[]).find(x=>x.id===momentEditId);if(!m)return;
+    var newNote=String(form.elements.note.value||'').trim();
+    if(!newNote&&!momentEditImg){toast('写点什么或留张照片再保存吧');return;}
+    var date=form.elements.date.value||m.date||isoDate();
+    var imgChanged=momentEditImg!==momentEditOriginalImg;
+    m.note=newNote;m.date=date;m.img=momentEditImg;
+    var fields=['note','date','style','mood'];if(imgChanged)fields.push('img');
+    updateRemoteMoment(m,fields);
+    const saved=saveState(true);renderAll();closeMomentEdit();
+    if(saved)toast('小记已更新');else toast('保存失败，请重试');
+  }
+  function bindMomentEdit(){
+    document.addEventListener('click',function(e){var btn=e.target.closest('[data-action]');if(!btn)return;var a=btn.dataset.action,id=btn.dataset.id;if(a==='edit-moment')openMomentEdit(id);if(a==='close-moment-edit')closeMomentEdit();});
+    var box=document.getElementById('momentEdit');
+    if(!box||box.dataset.bound)return;box.dataset.bound='1';
+    box.addEventListener('click',function(e){if(e.target.id==='momentEdit')closeMomentEdit();});
+    document.getElementById('momentEditPhotoInput').addEventListener('change',async function(e){var file=e.target.files&&e.target.files[0];if(!file)return;if(file.size>12*1024*1024){toast('照片请控制在 12MB 以内');e.target.value='';return;}try{momentEditImg=await compressImage(file,1080,1080);var up=document.getElementById('momentEditPhotoUpload');up.classList.add('has-cover');up.querySelector('span').style.backgroundImage=`url(${momentEditImg})`;up.querySelector('b').textContent='已更换新照片';var rm=document.getElementById('momentEditPhotoRemove');if(rm)rm.style.display='';toast('新照片已就绪，点保存生效');}catch(err){toast(err.message);}e.target.value='';});
+    document.getElementById('momentEditPhotoRemove').addEventListener('click',function(){momentEditImg='';var up=document.getElementById('momentEditPhotoUpload');up.classList.remove('has-cover');up.querySelector('span').style.backgroundImage='';up.querySelector('b').textContent='附一张生活小照（可选）';document.getElementById('momentEditPhotoRemove').style.display='none';});
+    document.getElementById('momentEditForm').addEventListener('submit',function(e){e.preventDefault();saveMomentEdit();});
   }
   var confirmResolver=null;
   function askConfirm(message,okLabel){
@@ -1296,7 +1355,7 @@ const _origSwitchView=switchView;switchView=function(view){_origSwitchView(view)
     document.getElementById('wallpaperUploadBtn').addEventListener('click',()=>document.getElementById('wallpaperInput').click());
     document.getElementById('wallpaperInput').addEventListener('change',async e=>{const[file]=e.target.files;if(!file)return;if(file.size>12*1024*1024){toast('背景图请控制在 12MB 以内');e.target.value='';return;}try{const img=await compressImage(file,1600,1600);state.settings.wallpaper=img;pushSetting('wallpaper',img);saveState();applyWallpaper();toast('工作台背景已更新');}catch(error){toast(error.message);}e.target.value='';});
     document.getElementById('wallpaperClearBtn').addEventListener('click',()=>{state.settings.wallpaper='';pushSetting('wallpaper','');saveState();applyWallpaper();toast('已恢复默认背景');});
-    document.addEventListener('keydown',event=>{if(event.key==='Escape'){settleConfirm(false);closeBrandSettings();closeHabitSettings();closePlanSettings();closeFitnessProfile();closeQuotePopup();closeQuoteSheet();}});
+    document.addEventListener('keydown',event=>{if(event.key==='Escape'){settleConfirm(false);closeBrandSettings();closeHabitSettings();closePlanSettings();closeFitnessProfile();closeQuotePopup();closeQuoteSheet();closeMomentEdit();}});
     document.addEventListener('click',event=>{
       const nav=event.target.closest('[data-nav]');if(nav)switchView(nav.dataset.nav);
       const quick=event.target.closest('[data-quick]');if(quick){switchView(quick.dataset.quick);setTimeout(()=>document.querySelector(`#view-${quick.dataset.quick} input:not([type="radio"])`)?.focus(),200);}
@@ -1330,7 +1389,7 @@ const _origSwitchView=switchView;switchView=function(view){_origSwitchView(view)
     window.addEventListener('storage',e=>{if(e.key!==STORAGE_KEY||!e.newValue)return;try{state=normalizeState(JSON.parse(e.newValue));renderAll();toast('另一个页面的数据已同步');}catch{}});
   }
 
-  function init(){const now=new Date(),weekdays=['星期日','星期一','星期二','星期三','星期四','星期五','星期六'];document.getElementById('todayLabel').textContent=LANG==='en'?new Intl.DateTimeFormat('en-US',{month:'long',day:'numeric',weekday:'long'}).format(now):`${now.getMonth()+1} 月 ${now.getDate()} 日 · ${weekdays[now.getDay()]}`;setDateDefaults();updateMoneyCategories();restoreDrafts();bindForms();bindEvents();renderAll();var initHash=location.hash.slice(1);if(['journal','moments','media','photos'].includes(initHash))initHash='journal';if(['planner','habits'].includes(initHash))initHash='schedule';;switchView(document.getElementById(`view-${initHash}`)?initHash:'dashboard');if(!dataCorrupted)saveState();pullAllRemote(function(ok){ var reshared=false; (state.moments||[]).forEach(function(m){ if(m.reshare){ delete m.reshare; pushMoment(m); reshared=true; } }); if(ok||reshared){ saveState(); renderAll(); } else if(ONLINE && !LOCAL_ONLY){ goLocalOnly('初次同步失败'); } });}
+  function init(){const now=new Date(),weekdays=['星期日','星期一','星期二','星期三','星期四','星期五','星期六'];document.getElementById('todayLabel').textContent=LANG==='en'?new Intl.DateTimeFormat('en-US',{month:'long',day:'numeric',weekday:'long'}).format(now):`${now.getMonth()+1} 月 ${now.getDate()} 日 · ${weekdays[now.getDay()]}`;setDateDefaults();updateMoneyCategories();restoreDrafts();bindForms();bindEvents();bindMomentEdit();renderAll();var initHash=location.hash.slice(1);if(['journal','moments','media','photos'].includes(initHash))initHash='journal';if(['planner','habits'].includes(initHash))initHash='schedule';;switchView(document.getElementById(`view-${initHash}`)?initHash:'dashboard');if(!dataCorrupted)saveState();pullAllRemote(function(ok){ var reshared=false; (state.moments||[]).forEach(function(m){ if(m.reshare){ delete m.reshare; pushMoment(m); reshared=true; } }); if(ok||reshared){ saveState(); renderAll(); } else if(ONLINE && !LOCAL_ONLY){ goLocalOnly('初次同步失败'); } });}
   startI18n();
   document.addEventListener('DOMContentLoaded',init);
 })();
