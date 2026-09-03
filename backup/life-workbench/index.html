@@ -105,7 +105,7 @@
           <article data-page-node-id="dI6GEW4qN3GEyPWdCFPmFn" class="panel form-panel"><div data-page-node-id="ug5woqxhAgvO8BuGh6b6Mw" class="panel-head"><div data-page-node-id="hjoGGC3sB7m9wg1AtJRgmB"><p data-page-node-id="nWuMbAO4o4yTfR7WF4USyt" class="eyebrow"><!--pnid:D9JJtKmSxDyG2rv8KSFGNd-->收支手账</p><h2 data-page-node-id="tSdYMjrdiLMZjs809roZK4"><!--pnid:DM3v5V4dk5xqHhUkeTgeTx-->记一笔账</h2></div><span data-page-node-id="cbmalzuWaAm7NJHoF7akn2" class="draft-status" data-draft-for="moneyForm"><!--pnid:nJHyOX1PWKCGNerZOOLhjZ-->草稿自动保存</span></div><form data-page-node-id="M6DDTH6lD7nIHCPPgg2xJv" data-draft="moneyForm" id="moneyForm">
             <div data-page-node-id="sIBQxKrsPnGW7od9TVOFHr" class="segmented"><label data-page-node-id="03P7CmX51DZW3jZG4oVJd4"><input data-page-node-id="0ASMIZHkhoB6cXJu2y59PV" checked name="flow" type="radio" value="expense"><span data-page-node-id="hPkKMZG2qetCDrfNE95d2G"><!--pnid:WPIa5evkguKkdzgeYR5wr1-->支出</span></label><label data-page-node-id="GNDzTlCuT1VSCa83rYpNql"><input data-page-node-id="2wgkoZh6QIHRi170fGouUZ" name="flow" type="radio" value="income"><span data-page-node-id="2wbFiYTWABMOfSkjwM2jn5"><!--pnid:GYHeGUwirfbjyFSaIoq7Zu-->收入</span></label></div>
             <label data-page-node-id="TeOXKnIXPXx0OyxorIF0Fm" class="field amount-field"><span data-page-node-id="kP2nH0OldXNAqdCxxIl7ct"><!--pnid:wC8Msq3z98n97JtbVzLvBM-->金额</span><div data-page-node-id="6cSQtyLhqqNFyNixX4jDPu"><b data-page-node-id="kbK4gfZzhhi8CDgFImCKE4"><!--pnid:Due5Ydgn0GJSStQLTxj4KY-->¥</b><input data-page-node-id="yUNDV0TS8WmQTunhv04jcG" inputmode="decimal" min="0.01" name="amount" placeholder="0.00" required step="0.01" type="number"></div></label>
-            <div data-page-node-id="e9o9vAtBiAfIyhcaNfzEor" class="form-row"><label data-page-node-id="rst0cxauliTjqTW6jpUvsk" class="field"><span data-page-node-id="9MQcy6W5sIF5SP4tQHE0No"><!--pnid:f18AZLErs4pKbvpXxoRHBa-->分类</span><select data-page-node-id="osUwK3gwpsnxckleIY4cAI" id="moneyCategory" name="category"></select></label><label data-page-node-id="8AG197wNYLvQ2fxzos83PD" class="field"><span data-page-node-id="U8IDTfez56QlBokNTzx05G"><!--pnid:149zlMeDmsHYPXfZWuHfjx-->日期</span><input data-page-node-id="FcZnRpWFXM9QyFg5Tgyciz" name="date" required type="date"></label></div>
+            <div data-page-node-id="e9o9vAtBiAfIyhcaNfzEor" class="form-row"><label data-page-node-id="rst0cxauliTjqTW6jpUvsk" class="field"><span data-page-node-id="9MQcy6W5sIF5SP4tQHE0No"><!--pnid:f18AZLErs4pKbvpXxoRHBa-->分类</span><input data-page-node-id="osUwK3gwpsnxckleIY4cAI" id="moneyCategory" list="moneyCatOptions" name="category" placeholder="选一个或输入新分类" autocomplete="off"><datalist data-page-node-id="osUwK3gopt1nxckleIY4dQ" id="moneyCatOptions"></datalist></label><label data-page-node-id="8AG197wNYLvQ2fxzos83PD" class="field"><span data-page-node-id="U8IDTfez56QlBokNTzx05G"><!--pnid:149zlMeDmsHYPXfZWuHfjx-->日期</span><input data-page-node-id="FcZnRpWFXM9QyFg5Tgyciz" name="date" required type="date"></label></div>
             <label data-page-node-id="AJgWwoHUmgRshovuu62BCw" class="field"><span data-page-node-id="HydFmOsD3YoaDkwZ3KmENH"><!--pnid:J11iFkqb1gSXZTykjSCKue-->备注</span><input data-page-node-id="tiGpC6k6YQBph3Yt8SLLTI" maxlength="60" name="note" placeholder="这笔钱花在了哪里"></label>
             <button data-page-node-id="rXDSRE2XVsUl6jnigbHYYf" class="btn primary full" type="submit"><svg data-page-node-id="I7EXKk8PywypWQ1ZnLjbvT"><use data-page-node-id="JbYz2Cl6hfpYY7tr1LcZRl" href="#i-plus"/></svg><!--pnid:alCHqr7FXaZxhvsgHeqP1F-->记下这笔</button>
           </form></article>
@@ -248,6 +248,19 @@
   .task-row.p-high:hover{background:rgba(196,60,52,.16);box-shadow:inset 0 0 0 1px rgba(196,60,52,.25)}
   .task-row.p-normal:hover{background:rgba(212,170,42,.20);box-shadow:inset 0 0 0 1px rgba(196,150,30,.22)}
   .task-row.p-low:hover{background:rgba(74,118,205,.18);box-shadow:inset 0 0 0 1px rgba(74,118,205,.22)}
+  .datepicker-field{cursor:pointer;caret-color:transparent}
+  .dp-sheet{padding:20px}
+  .dp-nav-row{display:flex;align-items:center;justify-content:space-between;gap:10px;margin:2px 0 14px}
+  .dp-nav{width:44px;height:44px;min-width:44px;border:1px solid rgba(120,95,70,.22);border-radius:12px;background:#faf7f2;font-size:26px;line-height:1;cursor:pointer;color:#4a3a2b}
+  .dp-go-today{height:44px;padding:0 18px;border:1px solid rgba(120,95,70,.22);border-radius:12px;background:#fffdfa;color:#6a5640;font-size:14px;cursor:pointer}
+  .dp-week{display:grid;grid-template-columns:repeat(7,1fr);gap:6px;margin-bottom:6px}
+  .dp-week span{text-align:center;font-size:13px;color:#9a8872;font-weight:600;padding-bottom:2px}
+  .dp-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:6px}
+  .dp-grid button{aspect-ratio:1;min-height:44px;border:0;border-radius:12px;background:transparent;font-size:15px;cursor:pointer;color:#4a3a2b}
+  .dp-grid button:hover{background:#f1e9dd}
+  .dp-grid button.today{box-shadow:inset 0 0 0 1.5px #b06a3f}
+  .dp-grid button.sel{background:#b06a3f;color:#fff;font-weight:700}
+  .dp-grid button.dim{color:#b7a892}
 </style>
         <div data-page-node-id="Xp2oXw8y7LwT1n3vaAGbSl" class="habit-layout">
           <article data-page-node-id="MsjQdPdJSl7EeVFm6grYnm" class="panel"><div data-page-node-id="ceJiYoVqaoRXt4bkXHg2Fn" class="panel-head"><div data-page-node-id="dX0F41iJBryPrIf1hlQ99h"><p data-page-node-id="2bKNfpDwSiqpkJQHtheyc6" class="eyebrow"><!--pnid:uFyYso84dytxw3j5PaGvH5-->今天打卡</p><h2 data-page-node-id="WkJsPCbxNtJUVagTZzaP7K"><!--pnid:sPyUlF8KBcEYIlNpuEj9Bi-->完成一点，就算前进</h2></div><div data-page-node-id="w2DabS3eOHYudbpZ8CAAGH" class="panel-actions"><span data-page-node-id="qFmwG68cKev1zxTzSOjchm" class="mini-note"><!--pnid:vhS94nuqK56CNJqnFlUPvZ-->每次点击立即保存</span><button data-page-node-id="G2ZKyqjj9l56zRJMjbq05p" class="btn ghost compact" data-action="open-habit-settings"><svg data-page-node-id="2f5GvafcwC8JkFGIM8KUoC"><use data-page-node-id="kYSE4Dg8iqC4FldmqzvL0D" href="#i-plus"/></svg><!--pnid:sjzMVcjM3j0hVvmnPiNHbL-->新增习惯</button></div></div><div data-page-node-id="o69vej7nGyOCbXtWrOy2LO" class="daily-habits" id="dailyHabitList"></div></article>
@@ -486,11 +499,32 @@
     } catch(e){ goLocalOnly("更新异常"); }
   }
 
-  function dbDelete(databaseId, recordId){
-    if (!ONLINE || LOCAL_ONLY) return;
+  function dbDelete(databaseId, recordId, cb){
+    if (!ONLINE || LOCAL_ONLY) { if(cb) cb(false); return; }
     try {
-      db.deleteRecord({ databaseId: databaseId, recordId: recordId }).catch(function(err){ goLocalOnly("删除失败"); });
-    } catch(e){ goLocalOnly("删除异常"); }
+      db.deleteRecord({ databaseId: databaseId, recordId: recordId }).then(function(){ if(cb) cb(true); }).catch(function(err){ goLocalOnly("删除失败"); if(cb) cb(false); });
+    } catch(e){ goLocalOnly("删除异常"); if(cb) cb(false); }
+  }
+  function dbForType(type){ return type==='money'?DB_MONEY:type==='planner'?DB_PLAN:type==='fitness'?DB_FITNESS:type==='home'?DB_SHOPPING:null; }
+  function markDeleted(dbId, rid){ state.settings.pendingDeletes=state.settings.pendingDeletes||[]; if(rid&&!state.settings.pendingDeletes.some(p=>p.db===dbId&&p.id===rid)) state.settings.pendingDeletes.push({db:dbId,id:rid}); }
+  function isMarked(dbId, rid){ if(!rid) return false; return (state.settings.pendingDeletes||[]).some(p=>p.db===dbId&&p.id===rid); }
+  function queueRemoteDelete(dbId, rid){
+    if(!rid || !ONLINE) return;
+    markDeleted(dbId, rid);
+    if(ONLINE && !LOCAL_ONLY){
+      dbDelete(dbId, rid, function(ok){ if(ok){ state.settings.pendingDeletes=(state.settings.pendingDeletes||[]).filter(p=>!(p.db===dbId&&p.id===rid)); saveState(true);} });
+    }
+  }
+  function flushPendingDeletes(){
+    if(!ONLINE || LOCAL_ONLY) return;
+    var q=(state.settings.pendingDeletes||[]).slice();
+    if(!q.length) return;
+    q.forEach(function(p){ dbDelete(p.db, p.id); });
+    state.records=(state.records||[]).filter(function(r){ return !isMarked(dbForType(r.type), r.remoteId); });
+    state.moments=(state.moments||[]).filter(function(m){ return !isMarked(DB_MOMENTS, m.remoteId); });
+    state.quotes=(state.quotes||[]).filter(function(x){ return !isMarked(DB_QUOTES, x.remoteId); });
+    state.mediaItems=(state.mediaItems||[]).filter(function(x){ return !isMarked(DB_MEDIA, x.remoteId); });
+    state.settings.pendingDeletes=[];
   }
 
   function pullAllRemote(cb){
@@ -621,8 +655,8 @@
     if(!fields || fields.indexOf('img')>-1) update["照片"] = { text: m.img || "" };
     dbUpdate(DB_MOMENTS, m.remoteId, update);
   }
-  function deleteRemoteMoment(m){ if(m && m.remoteId) dbDelete(DB_MOMENTS, m.remoteId); }
-  function deleteRemoteQuote(rid){ if(rid) dbDelete(DB_QUOTES, rid); }
+  function deleteRemoteMoment(m){ if(m && m.remoteId) queueRemoteDelete(DB_MOMENTS, m.remoteId); }
+  function deleteRemoteQuote(rid){ if(rid) queueRemoteDelete(DB_QUOTES, rid); }
   function pushQuote(q){
     if (!ONLINE || LOCAL_ONLY) return;
     var props = {};
@@ -736,7 +770,7 @@
     props["是否已买"] = { select: rec.data.bought ? "已买" : "待买" };
     dbUpdate(DB_SHOPPING, rec.remoteId, props);
   }
-  function deleteRemoteShopping(rid){ if(rid) dbDelete(DB_SHOPPING, rid); }
+  function deleteRemoteShopping(rid){ if(rid) queueRemoteDelete(DB_SHOPPING, rid); }
 
   function updateRemoteMedia(item){
     if (!ONLINE || LOCAL_ONLY || !item.remoteId) return;
@@ -748,7 +782,7 @@
     props["短评"] = { text: item.review || "" };
     dbUpdate(DB_MEDIA, item.remoteId, props);
   }
-  function deleteRemoteMedia(rid){ if(rid) dbDelete(DB_MEDIA, rid); }
+  function deleteRemoteMedia(rid){ if(rid) queueRemoteDelete(DB_MEDIA, rid); }
 
   const LANG_PARAM = new URL(location).searchParams.get('lang');
   const LANG = LANG_PARAM === 'en' ? 'en' : 'zh';
@@ -927,7 +961,7 @@
       quotes:[{id:uid(),text:'慢慢来，比较快。',kind:'生活',author:'',sample:true},{id:uid(),text:'允许自己有状态不好的日子。',kind:'安慰',author:'',sample:true},{id:uid(),text:'把注意力放在你能改变的事情上。',kind:'励志',author:'',sample:true}],
       photos:[],
       drafts:{},
-      settings:{wallpaper:'',budget:5000,recordsSinceExport:0,moneySinceExport:0,lastExportAt:null,archiveFilter:'all',moneyFilter:'all',plannerFilter:'all',shoppingFilter:'pending',mediaView:'wall',mediaStatusFilter:'all',mediaRatingFilter:0,hiddenHabitKeys:[],brand:{name:'日常集',avatar:'日',tagline:'生活有迹可循',theme:'plum'},fitnessProfile:{height:165,target:55,startWeight:60,age:30,sex:'female',activity:1.375},weeklyPlan:DEFAULT_PLAN.map(x=>({...x}))}
+      settings:{wallpaper:'',budget:5000,recordsSinceExport:0,moneySinceExport:0,lastExportAt:null,archiveFilter:'all',moneyFilter:'all',plannerFilter:'all',shoppingFilter:'pending',mediaView:'wall',mediaStatusFilter:'all',mediaRatingFilter:0,hiddenHabitKeys:[],pendingDeletes:[],brand:{name:'日常集',avatar:'日',tagline:'生活有迹可循',theme:'plum'},fitnessProfile:{height:165,target:55,startWeight:60,age:30,sex:'female',activity:1.375},weeklyPlan:DEFAULT_PLAN.map(x=>({...x}))}
     };
   }
 
@@ -1193,11 +1227,22 @@ const _origSwitchView=switchView;switchView=function(view){_origSwitchView(view)
   function closeBrandSettings(){document.getElementById('brandSettings').hidden=true;}
   function renderAll(){applyBrand();applyWallpaper();renderDashboard();renderMoney();renderHabits();renderFitness();renderPlanner();renderHome();renderMedia();renderMoments();renderQuotes();renderArchive();renderBackupStatus();}
 
-  function setDateDefaults(){document.querySelectorAll('input[type="date"][name="date"]').forEach(input=>{if(!input.value)input.value=isoDate();});}
+  function setDateDefaults(){document.querySelectorAll('input[name="date"]').forEach(input=>{if(!input.value)input.value=isoDate();});}
+  var dpTarget=null,dpYear=0,dpMonth=0,WEEKDAYS=['日','一','二','三','四','五','六'];
+  function pad2n(n){return n<10?'0'+n:''+n;}
+  function toISO(y,m,d){return y+'-'+pad2n(m)+'-'+pad2n(d);}
+  function parseISO(v){var p=String(v||'').split('-');if(p.length<3)return null;var y=+p[0],m=+p[1],d=+p[2];return(y&&m&&d)?new Date(y,m-1,d):null;}
+  function enhanceDatePickers(){document.querySelectorAll('input[type="date"]').forEach(function(inp){inp.type='text';inp.setAttribute('readonly','');inp.classList.add('datepicker-field');inp.setAttribute('inputmode','none');inp.setAttribute('autocomplete','off');if(!inp.value)inp.value=isoDate();var ev=function(e){e.preventDefault();openDatePicker(inp);};inp.addEventListener('click',ev);inp.addEventListener('focus',ev);});}
+  function openDatePicker(inp){dpTarget=inp;var d=parseISO(inp.value)||new Date();dpYear=d.getFullYear();dpMonth=d.getMonth()+1;renderDatePicker();var bd=document.getElementById('datePickerBackdrop');if(bd)bd.hidden=false;}
+  function closeDatePicker(){var bd=document.getElementById('datePickerBackdrop');if(bd)bd.hidden=true;dpTarget=null;}
+  function renderDatePicker(){var label=document.getElementById('dpMonthLabel');if(label)label.textContent=dpYear+' 年 '+dpMonth+' 月';var grid=document.getElementById('dpGrid');if(!grid)return;var today=new Date(),ty=today.getFullYear(),tm=today.getMonth()+1,td=today.getDate();var sel=dpTarget?parseISO(dpTarget.value):null;var first=new Date(dpYear,dpMonth-1,1),startDow=first.getDay(),daysInMonth=new Date(dpYear,dpMonth,0).getDate(),daysInPrev=new Date(dpYear,dpMonth-1,0).getDate(),html='';for(var i=0;i<startDow;i++){var pd=daysInPrev-startDow+1+i;html+='<button type="button" data-y="'+(dpMonth===1?dpYear-1:dpYear)+'" data-m="'+(dpMonth===1?12:dpMonth-1)+'" data-d="'+pd+'" class="dim">'+pd+'</button>';}for(var d=1;d<=daysInMonth;d++){var cls='';if(d===td&&dpMonth===tm&&dpYear===ty)cls+=' today';if(sel&&sel.getFullYear()===dpYear&&(sel.getMonth()+1)===dpMonth&&sel.getDate()===d)cls+=' sel';html+='<button type="button" data-y="'+dpYear+'" data-m="'+dpMonth+'" data-d="'+d+'" class="'+cls.trim()+'">'+d+'</button>';}var total=startDow+daysInMonth,cells=Math.ceil(total/7)*7;for(var i=total;i<cells;i++){var nd=i-total+1;html+='<button type="button" data-y="'+(dpMonth===12?dpYear+1:dpYear)+'" data-m="'+(dpMonth===12?1:dpMonth+1)+'" data-d="'+nd+'" class="dim">'+nd+'</button>';}grid.innerHTML=html;}
+  function dpShift(delta){var m=dpMonth+delta,y=dpYear;if(m<1){m=12;y--;}if(m>12){m=1;y++;}dpYear=y;dpMonth=m;renderDatePicker();}
+  function dpPick(y,m,d){if(dpTarget){dpTarget.value=toISO(y,m,d);dpTarget.dispatchEvent(new Event('input',{bubbles:true}));dpTarget.dispatchEvent(new Event('change',{bubbles:true}));}closeDatePicker();}
+  function bindDatePicker(){var bd=document.getElementById('datePickerBackdrop');if(!bd||bd.dataset.bound)return;bd.dataset.bound='1';bd.addEventListener('click',function(e){if(e.target===bd)closeDatePicker();});var el=function(id){return document.getElementById(id);};var wk=document.getElementById('dpWeek');if(wk&&!wk.dataset.done){wk.dataset.done='1';wk.innerHTML=WEEKDAYS.map(function(w){return'<span>'+w+'</span>';}).join('');}if(el('dpClose'))el('dpClose').addEventListener('click',closeDatePicker);if(el('dpPrev'))el('dpPrev').addEventListener('click',function(){dpShift(-1);});if(el('dpNext'))el('dpNext').addEventListener('click',function(){dpShift(1);});if(el('dpTodayBtn'))el('dpTodayBtn').addEventListener('click',function(){var n=new Date();dpYear=n.getFullYear();dpMonth=n.getMonth()+1;renderDatePicker();});var grid=document.getElementById('dpGrid');if(grid)grid.addEventListener('click',function(e){var b=e.target.closest('button[data-d]');if(!b)return;dpPick(+b.dataset.y,+b.dataset.m,+b.dataset.d);});document.addEventListener('keydown',function(e){if(e.key==='Escape')closeDatePicker();});}
   function serializeForm(form){const values={};Array.from(form.elements).forEach(field=>{if(!field.name||field.type==='submit'||(field.type==='radio'&&!field.checked))return;values[field.name]=field.type==='checkbox'?field.checked:field.value;});return values;}
   function restoreDrafts(){document.querySelectorAll('form[data-draft]').forEach(form=>{const draft=state.drafts[form.dataset.draft];if(!draft)return;Object.entries(draft).forEach(([name,value])=>form.querySelectorAll(`[name="${CSS.escape(name)}"]`).forEach(field=>{if(field.type==='radio')field.checked=field.value===value;else if(field.type==='checkbox')field.checked=Boolean(value);else field.value=value;}));});updateMoneyCategories();}
   function clearDraft(form){delete state.drafts[form.dataset.draft];form.reset();setDateDefaults();updateMoneyCategories();saveState();}
-  function updateMoneyCategories(){const form=document.getElementById('moneyForm'),flow=form?.querySelector('[name="flow"]:checked')?.value||'expense',select=document.getElementById('moneyCategory');if(!select)return;const current=select.value,categories=flow==='income'?INCOME_CATEGORIES:EXPENSE_CATEGORIES;select.innerHTML=categories.map(c=>`<option ${c===current?'selected':''}>${c}</option>`).join('');}
+  function updateMoneyCategories(){const form=document.getElementById('moneyForm'),flow=form?.querySelector('[name="flow"]:checked')?.value||'expense',input=document.getElementById('moneyCategory'),dl=document.getElementById('moneyCatOptions');if(!dl)return;const current=input?.value||'',categories=(flow==='income'?INCOME_CATEGORIES.slice():EXPENSE_CATEGORIES.slice());if(current&&categories.indexOf(current)<0)categories.unshift(current);dl.innerHTML=categories.map(c=>`<option value="${c}"></option>`).join('');}
 
   function downloadBlob(content,type,name){const blob=new Blob([content],{type}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download=name;document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1000);}
   function exportExcel(kind){
@@ -1312,7 +1357,7 @@ const _origSwitchView=switchView;switchView=function(view){_origSwitchView(view)
     LOCAL_ONLY=false;var btn=document.getElementById('syncRetryBtn');if(btn)btn.hidden=true;
     toast('正在重试同步…');
     pullAllRemote(function(ok){
-      if(ok){saveState();renderAll();toast('同步成功，数据已更新');}
+      if(ok){ flushPendingDeletes(); saveState(); renderAll(); toast('同步成功，数据已更新'); }
       else{LOCAL_ONLY=true;if(btn)btn.hidden=false;toast('重试失败，请检查网络后再试');}
     });
   }
@@ -1389,12 +1434,13 @@ const _origSwitchView=switchView;switchView=function(view){_origSwitchView(view)
     window.addEventListener('storage',e=>{if(e.key!==STORAGE_KEY||!e.newValue)return;try{state=normalizeState(JSON.parse(e.newValue));renderAll();toast('另一个页面的数据已同步');}catch{}});
   }
 
-  function init(){const now=new Date(),weekdays=['星期日','星期一','星期二','星期三','星期四','星期五','星期六'];document.getElementById('todayLabel').textContent=LANG==='en'?new Intl.DateTimeFormat('en-US',{month:'long',day:'numeric',weekday:'long'}).format(now):`${now.getMonth()+1} 月 ${now.getDate()} 日 · ${weekdays[now.getDay()]}`;setDateDefaults();updateMoneyCategories();restoreDrafts();bindForms();bindEvents();bindMomentEdit();renderAll();var initHash=location.hash.slice(1);if(['journal','moments','media','photos'].includes(initHash))initHash='journal';if(['planner','habits'].includes(initHash))initHash='schedule';;switchView(document.getElementById(`view-${initHash}`)?initHash:'dashboard');if(!dataCorrupted)saveState();pullAllRemote(function(ok){ var reshared=false; (state.moments||[]).forEach(function(m){ if(m.reshare){ delete m.reshare; pushMoment(m); reshared=true; } }); if(ok||reshared){ saveState(); renderAll(); } else if(ONLINE && !LOCAL_ONLY){ goLocalOnly('初次同步失败'); } });}
+  function init(){const now=new Date(),weekdays=['星期日','星期一','星期二','星期三','星期四','星期五','星期六'];document.getElementById('todayLabel').textContent=LANG==='en'?new Intl.DateTimeFormat('en-US',{month:'long',day:'numeric',weekday:'long'}).format(now):`${now.getMonth()+1} 月 ${now.getDate()} 日 · ${weekdays[now.getDay()]}`;setDateDefaults();updateMoneyCategories();restoreDrafts();bindForms();bindEvents();bindMomentEdit();enhanceDatePickers();bindDatePicker();renderAll();var initHash=location.hash.slice(1);if(['journal','moments','media','photos'].includes(initHash))initHash='journal';if(['planner','habits'].includes(initHash))initHash='schedule';;switchView(document.getElementById(`view-${initHash}`)?initHash:'dashboard');if(!dataCorrupted)saveState();pullAllRemote(function(ok){ if(ok){ flushPendingDeletes(); } var reshared=false; (state.moments||[]).forEach(function(m){ if(m.reshare){ delete m.reshare; pushMoment(m); reshared=true; } }); if(ok||reshared){ saveState(); renderAll(); } else if(ONLINE && !LOCAL_ONLY){ goLocalOnly('初次同步失败'); } });}
   startI18n();
   document.addEventListener('DOMContentLoaded',init);
 })();
 
   </script>
+<div class="settings-backdrop" hidden id="datePickerBackdrop"><div aria-modal="true" class="settings-sheet dp-sheet" role="dialog" style="max-width:420px"><div class="settings-head"><div><p class="eyebrow">选择日期</p><h2 id="dpMonthLabel">选择日期</h2></div><button aria-label="关闭" class="sheet-close" id="dpClose" type="button">×</button></div><div class="dp-nav-row"><button aria-label="上个月" class="dp-nav" id="dpPrev" type="button">‹</button><button class="dp-go-today" id="dpTodayBtn" type="button">回到今天</button><button aria-label="下个月" class="dp-nav" id="dpNext" type="button">›</button></div><div class="dp-week" id="dpWeek"></div><div class="dp-grid" id="dpGrid"></div></div></div>
 <div class="confirm-modal" hidden id="confirmModal"><div class="confirm-card"><p id="confirmText"></p><div class="confirm-actions"><button class="btn ghost" id="confirmCancel" type="button">取消</button><button class="btn danger" id="confirmOk" type="button">确认</button></div></div></div>
 </body>
 </html>
