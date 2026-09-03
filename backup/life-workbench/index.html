@@ -129,7 +129,7 @@
   .field textarea{width:100%;min-height:96px;padding:10px 12px;border:1px solid #ddd4c8;border-radius:11px;outline:0;background:#fbf8f3;font:inherit;resize:vertical;transition:.2s}
   .field textarea:focus{border-color:#92748a;box-shadow:0 0 0 3px rgba(77,48,69,.07);background:#fffdf9}
   body.has-wallpaper{background:linear-gradient(180deg,rgba(250,247,242,.55),rgba(250,247,242,.78)),var(--wallpaper) center/cover no-repeat fixed}
-  body.has-wallpaper .sidebar{background:rgba(237,230,220,.93)}
+  body.has-wallpaper .sidebar{background:rgba(237,230,220,.4);backdrop-filter:blur(16px)}
   .photo-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:18px}
   .photo-card{margin:0;display:flex;flex-direction:column;gap:8px}
   .photo-frame{aspect-ratio:3/4;border-radius:16px;overflow:hidden;background:#eee7df;border:1px solid rgba(104,87,68,.1)}
@@ -159,10 +159,15 @@
     .photo-grid{grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:14px}
   }
 
-  body.has-wallpaper .panel{background:rgba(255,252,247,.85);backdrop-filter:blur(10px)}
-  body.has-wallpaper .topbar{background:rgba(250,247,242,.68);backdrop-filter:blur(12px)}
-  body.has-wallpaper .sidebar{background:rgba(237,230,220,.8);backdrop-filter:blur(10px)}
-  body.has-wallpaper .mobile-nav{background:rgba(255,252,247,.88)}
+  body.has-wallpaper .panel{background:rgba(255,252,247,.38);backdrop-filter:blur(18px)}
+    body.has-wallpaper .hero-card{background:linear-gradient(135deg,rgba(77,48,69,.78),rgba(60,38,54,.82));backdrop-filter:blur(18px)}
+  body.has-wallpaper .nav-item.active{background:rgba(255,252,247,.55)}
+  body.has-wallpaper .nav-item.active:hover{background:rgba(255,252,247,.6)}
+  body.has-wallpaper .archive-day{background:rgba(255,252,247,.35)}
+  body.has-wallpaper .moment-card{background:rgba(255,255,255,.3)}
+  body.has-wallpaper .topbar{background:rgba(250,247,242,.42);backdrop-filter:blur(18px)}
+  body.has-wallpaper .sidebar{background:rgba(237,230,220,.42);backdrop-filter:blur(16px)}
+  body.has-wallpaper .mobile-nav{background:rgba(255,252,247,.5);backdrop-filter:blur(16px)}
   .moment-list{display:flex;flex-direction:column;gap:14px}
   .moment-card{display:flex;gap:14px;padding:14px;border:1px solid rgba(85,69,55,.12);border-radius:18px;background:rgba(255,255,255,.5)}
   .moment-photo{width:132px;min-height:100px;border-radius:14px;overflow:hidden;flex:0 0 auto;background:#eee7df;border:1px solid rgba(104,87,68,.1)}
