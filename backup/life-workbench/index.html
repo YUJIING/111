@@ -231,6 +231,8 @@
   .moment-tools{display:flex;align-items:center;gap:8px;margin-top:auto;flex-wrap:wrap}
   .moment-tools select{min-height:36px;border:1px solid rgba(85,69,55,.25);border-radius:10px;background:transparent;padding:0 8px;font-size:13px}
   .moment-tools .delete-btn{margin-left:auto}
+  .habit-viewbar{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:14px;flex-wrap:wrap}.habit-viewbar .view-toggle button{min-width:52px}.habit-month{display:flex;flex-direction:column;gap:10px}.habit-month-row{display:grid;grid-template-columns:110px 1fr;gap:5px;align-items:center}.habit-month-name{font-size:11px;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.habit-month-cells{display:grid;grid-auto-flow:column;grid-auto-columns:27px;gap:5px;overflow-x:auto;padding-bottom:4px}.habit-month-cell{width:27px;height:27px;border-radius:7px;border:0;background:#ede6dc;color:#8b8074;font-size:9px;display:flex;align-items:center;justify-content:center;padding:0;font-family:inherit;cursor:pointer}.habit-month-cell.done{background:#6f8c72;color:white}.habit-month-cell.partial{background:#b7c8b8;color:#3f5340}.habit-month-cell.today{box-shadow:0 0 0 2px var(--plum)}.habit-month-cell:disabled{opacity:.35;cursor:default}#fabAdd{display:none;position:fixed;right:16px;bottom:calc(96px + env(safe-area-inset-bottom));z-index:45;width:56px;height:56px;border:0;border-radius:50%;background:var(--plum);color:#fff;box-shadow:0 10px 24px rgba(58,42,50,.3);font-size:30px;line-height:1;align-items:center;justify-content:center;padding:0 0 4px;cursor:pointer}.fab-sheet-backdrop{position:fixed;inset:0;z-index:120;background:rgba(31,26,22,.38);backdrop-filter:blur(6px)}.fab-sheet-backdrop[hidden]{display:none}.fab-sheet{position:fixed;left:0;right:0;bottom:0;z-index:121;padding:22px 20px calc(20px + env(safe-area-inset-bottom));border-radius:24px 24px 0 0;background:var(--card);box-shadow:0 -18px 50px rgba(36,26,22,.25)}.fab-sheet[hidden]{display:none}.fab-title{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px}.fab-amount{display:flex;align-items:center;gap:8px;border-bottom:1px solid #d6ccbf;margin-bottom:14px}.fab-amount b{font:600 22px/1 serif}.fab-amount input{flex:1;height:56px;border:0;background:transparent;font-size:30px;font-weight:700;outline:0;min-width:0}.fab-cats{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px}.fab-cats button{height:36px;padding:0 13px;border:1px solid var(--line);border-radius:20px;background:transparent;color:#72695f;font-size:12px}.fab-cats button.active{background:var(--ink);border-color:var(--ink);color:white}.fab-note{width:100%;height:44px;border:1px solid #ddd4c8;border-radius:11px;padding:0 12px;background:#fbf8f3;font-size:16px;outline:0;margin-bottom:14px}.fab-actions{display:flex;gap:9px}.fab-actions .btn{flex:1;min-height:46px}
+  @media(max-width:860px){#fabAdd{display:flex}.habit-month-row{grid-template-columns:88px 1fr}}
   .confirm-modal{position:fixed;inset:0;z-index:90;display:flex;align-items:center;justify-content:center;padding:20px;background:rgba(53,41,31,.42)}
   .confirm-modal[hidden]{display:none}
   .confirm-card{width:min(92vw,380px);background:#fffdf9;border-radius:20px;padding:22px;box-shadow:0 24px 60px rgba(53,41,31,.28)}
@@ -269,7 +271,7 @@
   .dp-grid button.dim{color:#b7a892}
 </style>
         <div data-page-node-id="Xp2oXw8y7LwT1n3vaAGbSl" class="habit-layout">
-          <article data-page-node-id="MsjQdPdJSl7EeVFm6grYnm" class="panel"><div data-page-node-id="ceJiYoVqaoRXt4bkXHg2Fn" class="panel-head"><div data-page-node-id="dX0F41iJBryPrIf1hlQ99h"><p data-page-node-id="2bKNfpDwSiqpkJQHtheyc6" class="eyebrow"><!--pnid:uFyYso84dytxw3j5PaGvH5-->今天打卡</p><h2 data-page-node-id="WkJsPCbxNtJUVagTZzaP7K"><!--pnid:sPyUlF8KBcEYIlNpuEj9Bi-->完成一点，就算前进</h2></div><div data-page-node-id="w2DabS3eOHYudbpZ8CAAGH" class="panel-actions"><span data-page-node-id="qFmwG68cKev1zxTzSOjchm" class="mini-note"><!--pnid:vhS94nuqK56CNJqnFlUPvZ-->每次点击立即保存</span><button data-page-node-id="G2ZKyqjj9l56zRJMjbq05p" class="btn ghost compact" data-action="open-habit-settings"><svg data-page-node-id="2f5GvafcwC8JkFGIM8KUoC"><use data-page-node-id="kYSE4Dg8iqC4FldmqzvL0D" href="#i-plus"/></svg><!--pnid:sjzMVcjM3j0hVvmnPiNHbL-->新增习惯</button></div></div><div data-page-node-id="o69vej7nGyOCbXtWrOy2LO" class="daily-habits" id="dailyHabitList"></div></article>
+          <article data-page-node-id="MsjQdPdJSl7EeVFm6grYnm" class="panel"><div data-page-node-id="ceJiYoVqaoRXt4bkXHg2Fn" class="panel-head"><div data-page-node-id="dX0F41iJBryPrIf1hlQ99h"><p data-page-node-id="2bKNfpDwSiqpkJQHtheyc6" class="eyebrow"><!--pnid:uFyYso84dytxw3j5PaGvH5-->今天打卡</p><h2 data-page-node-id="WkJsPCbxNtJUVagTZzaP7K"><!--pnid:sPyUlF8KBcEYIlNpuEj9Bi-->完成一点，就算前进</h2></div><div data-page-node-id="w2DabS3eOHYudbpZ8CAAGH" class="panel-actions"><span data-page-node-id="qFmwG68cKev1zxTzSOjchm" class="mini-note"><!--pnid:vhS94nuqK56CNJqnFlUPvZ-->每次点击立即保存</span><button data-page-node-id="G2ZKyqjj9l56zRJMjbq05p" class="btn ghost compact" data-action="open-habit-settings"><svg data-page-node-id="2f5GvafcwC8JkFGIM8KUoC"><use data-page-node-id="kYSE4Dg8iqC4FldmqzvL0D" href="#i-plus"/></svg><!--pnid:sjzMVcjM3j0hVvmnPiNHbL-->新增习惯</button></div></div><div class="habit-viewbar"><div class="view-toggle"><button type="button" id="habitViewCards" class="active">卡片</button><button type="button" id="habitViewMonth">月历</button></div><div id="habitMonthNav" hidden style="display:flex;align-items:center;gap:8px"><button type="button" class="btn ghost compact" id="habitMonthPrev">←</button><strong id="habitMonthLabel" style="font-size:11px;white-space:nowrap"></strong><button type="button" class="btn ghost compact" id="habitMonthNext">→</button></div></div><div data-page-node-id="o69vej7nGyOCbXtWrOy2LO" class="daily-habits" id="dailyHabitList"></div><div id="habitMonthList" hidden></div></article>
           <div data-page-node-id="5RqcnCPnGoDdm6gIWOa7Jg" class="metric-row"><article data-page-node-id="y0cyVJ5lskv8KGHuthq4Gn" class="metric"><span data-page-node-id="P2pErQKsAQm60XQYgybpPh"><!--pnid:yAO6GSBTVTJJnmB20Cpxr3-->今日完成</span><strong data-page-node-id="Q18ST0aHch0qwZmIK8E47K" id="habitsDone"><!--pnid:p2RWInc7EJ8joc0Tp369kR-->0 / 5</strong></article><article data-page-node-id="dDJuvjm0BCpSzS7jfWF3lb" class="metric"><span data-page-node-id="c5pSnaPJhGzRWFzhdafs02"><!--pnid:YsDrAr8tdjAtEMI9ceGy1w-->最佳连续</span><strong data-page-node-id="MPX3uxYl9x8SWSIolytEzu" id="habitsStreak"><!--pnid:K4ZLwIMWvoSUr27xMLb7gh-->0 天</strong></article><article data-page-node-id="YIWDArp1smT03wJ1Iq8T5L" class="metric"><span data-page-node-id="ycjAKOqVZFTuCndei2lhUl"><!--pnid:E4bBE5oA2NosGDp7NL4GYe-->近 30 天完成率</span><strong data-page-node-id="6YgZoQDtysgPLtmbNd60pW" id="habitRate"><!--pnid:RPzoIZwk592zRwBoJEcNWl-->0%</strong></article></div>
           <article data-page-node-id="5eSSyBEn22aDqcnszD3Pct" class="panel heatmap-panel"><div data-page-node-id="ZDsWkt5w36pWVTL5dNlQtS" class="panel-head"><div data-page-node-id="Lw1PeFWl47bgJpXFaLZNpS"><p data-page-node-id="oPODtmF6HnXfZiMmUN5U9l" class="eyebrow"><!--pnid:LX7Qfm306pKfqltPfNQLyd-->30 天热力图</p><h2 data-page-node-id="Xc6HwAzUJmOw2001bLVnkx"><!--pnid:A9T7KSnVesObdohpUIWpWi-->坚持，是有形状的</h2></div><span data-page-node-id="IzN473lfuTFc9qGsTjE9ip" class="mini-note"><!--pnid:anQf22s6e7fqeAx0VeZzYd-->手机可横向滑动</span></div><div data-page-node-id="CLahIqKfsQFKYhIn8Y0kal" class="heatmap-scroll"><div data-page-node-id="C9FBLsiQjD3DNzeYHIkab3" class="habit-heatmap" id="habitHeatmap"></div></div></article>
         </div>
@@ -447,6 +449,15 @@
     </section>
   </div>
   <div data-page-node-id="O6lqhL5DjisqKtD2248Lk7" aria-live="polite" class="toast" id="toast" role="status"></div>
+  <button type="button" id="fabAdd" aria-label="快速记账">+</button>
+  <div class="fab-sheet-backdrop" id="fabBackdrop" hidden></div>
+  <div class="fab-sheet" id="fabSheet" hidden>
+    <div class="fab-title"><strong style="font-size:15px">快速记一笔支出</strong><button type="button" class="sheet-close" id="fabClose" style="width:34px;height:34px;font-size:20px" aria-label="关闭">×</button></div>
+    <div class="fab-amount"><b>¥</b><input id="fabAmount" type="number" inputmode="decimal" min="0" step="0.01" placeholder="0.00"></div>
+    <div class="fab-cats" id="fabCats"></div>
+    <input id="fabNote" class="fab-note" type="text" placeholder="备注（可空）">
+    <div class="fab-actions"><button type="button" class="btn ghost" id="fabTodo">去记待办</button><button type="button" class="btn ghost" id="fabJournal">去写小记</button><button type="button" class="btn" id="fabSave">保存</button></div>
+  </div>
   <div data-page-node-id="6EFvOjbDff5dYeiEpIP5eg" aria-hidden="true" class="confetti" id="confetti"></div>
   <script data-page-node-id="NWnaoiLqDuBK1LXGZoVUKl" data-pnid-children="NXSahhtCjr43M8gdswI784">
 (() => {
@@ -1166,6 +1177,61 @@ const _origSwitchView=switchView;switchView=function(view){_origSwitchView(view)
     document.getElementById('dailyHabitList').innerHTML=state.habits.map(h=>{const value=Number(h.entries?.[today]||0),isDone=habitDone(h),pulse=!isDone&&new Date().getHours()>=20,isBuiltIn=HABIT_DEFS.some(def=>def.key===h.key)||h.sample,hdef=HABIT_DEFS.find(d=>d.key===h.key),unit=h.type==='check'?localizedHtml('次'):hdef?escapeHtml(resolveHabitUnit(hdef)):isBuiltIn?localizedHtml(h.unit):userHtml(h.unit);let control='';if(h.type==='counter')control=`<div class="counter-control"><button data-action="habit-minus" data-id="${h.id}">${icon('i-minus')}</button><strong>${value}</strong><button data-action="habit-plus" data-id="${h.id}">${icon('i-plus')}</button></div>`;else if(h.type==='number')control=`<div class="sleep-control"><input data-action="habit-number" data-id="${h.id}" type="number" min="0" max="9999" step="0.1" value="${value||''}" placeholder="0"><span>${unit}</span></div>`;else control=`<button class="habit-check ${isDone?'checked':''}" data-action="habit-toggle" data-id="${h.id}">${isDone?icon('i-check'):''}</button>`;return`<div class="daily-habit ${isDone?'done':''} ${pulse?'pulse':''}"><button class="habit-card-delete" data-action="delete-habit-custom" data-id="${h.id}" aria-label="${t('删除习惯')}">${icon('i-trash')}</button><div><h3>${habitNameHtml(h)}</h3><p>${LANG==='en'?`Target ${h.target} ${unit} · ${habitStreak(h)}-day streak`:`目标 ${h.target} ${unit} · 连续 ${habitStreak(h)} 天`}</p></div><div class="habit-action"><span class="habit-state">${t(isDone?'已完成':'待完成')}</span>${control}</div></div>`;}).join('');
     const header=`<div class="heatmap-header"><span></span>${dates.map((d,i)=>`<span>${i%5===0?new Date(`${d}T00:00:00`).getDate():''}</span>`).join('')}</div>`;
     document.getElementById('habitHeatmap').innerHTML=header+state.habits.map(h=>`<div class="heatmap-row"><span class="heatmap-name">${habitNameHtml(h)}<i class="streak-badge">${LANG==='en'?`${habitStreak(h)} days`:`${habitStreak(h)} 天`}</i></span>${dates.map(date=>{const value=Number(h.entries?.[date]||0);return`<span class="heat-cell ${habitDone(h,date)?'done':value?'partial':''}" title="${date}${LANG==='en'?': ':'：'}${value||t('未完成')}"></span>`;}).join('')}</div>`).join('');
+    const hv=state.settings.habitView||'cards',cardsEl=document.getElementById('dailyHabitList'),monthEl=document.getElementById('habitMonthList');
+    if(cardsEl&&monthEl){cardsEl.hidden=hv==='month';monthEl.hidden=hv!=='month';}
+    const vc=document.getElementById('habitViewCards'),vm=document.getElementById('habitViewMonth');
+    if(vc&&vm){vc.classList.toggle('active',hv!=='month');vm.classList.toggle('active',hv==='month');}
+    const mnav=document.getElementById('habitMonthNav');if(mnav)mnav.hidden=hv!=='month';
+    if(hv==='month')renderHabitMonth();
+  }
+  function renderHabitMonth(){
+    const wrap=document.getElementById('habitMonthList');if(!wrap)return;
+    const ym=state.settings.habitMonth||isoDate().slice(0,7),today=isoDate();
+    const y=Number(ym.slice(0,4)),m=Number(ym.slice(5,7)),days=new Date(y,m,0).getDate();
+    const label=document.getElementById('habitMonthLabel');if(label)label.textContent=`${y} 年 ${m} 月`;
+    const nextBtn=document.getElementById('habitMonthNext');if(nextBtn)nextBtn.disabled=ym>=isoDate().slice(0,7);
+    if(!state.habits.length){wrap.innerHTML=empty('还没有习惯，先去新增一个');return;}
+    wrap.innerHTML=`<div class="habit-month">${state.habits.map(h=>`<div class="habit-month-row"><span class="habit-month-name">${habitNameHtml(h)}</span><div class="habit-month-cells">${Array.from({length:days},(_,i)=>{const d=`${ym}-${String(i+1).padStart(2,'0')}`,future=d>today,value=Number(h.entries?.[d]||0),done=habitDone(h,d),cls=['habit-month-cell',done?'done':value?'partial':'',d===today?'today':''].filter(Boolean).join(' ');return`<button type="button" class="${cls}" data-action="habit-day" data-id="${h.id}" data-date="${d}" ${future?'disabled':''} title="${d}${done?LANG==='en'?' done':' 已完成':''}">${i+1}</button>`;}).join('')}</div></div>`).join('')}</div>`;
+  }
+  function shiftHabitMonth(dir){
+    const cur=state.settings.habitMonth||isoDate().slice(0,7);let y=Number(cur.slice(0,4)),m=Number(cur.slice(5,7));
+    m+=dir;if(m<1){m=12;y--;}if(m>12){m=1;y++;}
+    const next=`${y}-${String(m).padStart(2,'0')}`;if(next>isoDate().slice(0,7))return;
+    state.settings.habitMonth=next;renderHabits();
+  }
+  function setHabitDate(id,date){
+    const h=state.habits.find(x=>x.id===id);if(!h||date>isoDate())return;
+    h.entries[date]=habitDone(h,date)?0:Number(h.target||1);
+    pushHabit(h,date);
+    const justDone=habitDone(h,date),saved=saveState();renderAll();
+    if(saved&&justDone)toast(LANG==='en'?`${h.name} completed`:`${h.name}，完成得漂亮`);
+  }
+  let fabCat='其他';
+  function fabCatList(){const recent=[];sortedRecords('money').forEach(r=>{if(r.data.flow!=='income'&&r.data.category&&!recent.includes(r.data.category))recent.push(r.data.category);});EXPENSE_CATEGORIES.forEach(c=>{if(!recent.includes(c))recent.push(c);});return recent.slice(0,8);}
+  function renderFabCats(){const box=document.getElementById('fabCats');if(!box)return;box.innerHTML=fabCatList().map(c=>`<button type="button" class="${c===fabCat?'active':''}" data-fab-cat="${escapeHtml(c)}">${escapeHtml(c)}</button>`).join('');}
+  function openFab(){fabCat='其他';const a=document.getElementById('fabAmount'),n=document.getElementById('fabNote');if(a)a.value='';if(n)n.value='';renderFabCats();document.getElementById('fabBackdrop').hidden=false;document.getElementById('fabSheet').hidden=false;}
+  function closeFab(){document.getElementById('fabBackdrop').hidden=true;document.getElementById('fabSheet').hidden=true;}
+  function bindFab(){
+    const fab=document.getElementById('fabAdd');if(!fab)return;
+    fab.addEventListener('click',openFab);
+    document.getElementById('fabClose').addEventListener('click',closeFab);
+    document.getElementById('fabBackdrop').addEventListener('click',closeFab);
+    document.getElementById('fabCats').addEventListener('click',e=>{const b=e.target.closest('[data-fab-cat]');if(!b)return;fabCat=b.dataset.fabCat;renderFabCats();});
+    document.getElementById('fabSave').addEventListener('click',()=>{
+      const amount=Number(document.getElementById('fabAmount').value);
+      if(!(amount>0))return toast('请输入有效金额');
+      const note=document.getElementById('fabNote').value.trim();
+      if(addRecord('money',isoDate(),{flow:'expense',amount,category:fabCat,note}))closeFab();
+    });
+    document.getElementById('fabTodo').addEventListener('click',()=>{closeFab();switchView('schedule');});
+    document.getElementById('fabJournal').addEventListener('click',()=>{closeFab();switchView('journal');});
+  }
+  function bindHabitView(){
+    const vc=document.getElementById('habitViewCards'),vm=document.getElementById('habitViewMonth');
+    if(vc&&vm){vc.addEventListener('click',()=>{state.settings.habitView='cards';saveState();renderHabits();});vm.addEventListener('click',()=>{state.settings.habitView='month';saveState();renderHabits();});}
+    const hmP=document.getElementById('habitMonthPrev'),hmN=document.getElementById('habitMonthNext');
+    if(hmP)hmP.addEventListener('click',()=>shiftHabitMonth(-1));
+    if(hmN)hmN.addEventListener('click',()=>shiftHabitMonth(1));
   }
 
   function fitnessStats(){
@@ -1431,13 +1497,13 @@ const _origSwitchView=switchView;switchView=function(view){_origSwitchView(view)
     document.getElementById('wallpaperUploadBtn').addEventListener('click',()=>document.getElementById('wallpaperInput').click());
     document.getElementById('wallpaperInput').addEventListener('change',async e=>{const[file]=e.target.files;if(!file)return;if(file.size>12*1024*1024){toast('背景图请控制在 12MB 以内');e.target.value='';return;}try{const img=await compressImage(file,1600,1600);state.settings.wallpaper=img;pushSetting('wallpaper',img);saveState();applyWallpaper();toast('工作台背景已更新');}catch(error){toast(error.message);}e.target.value='';});
     document.getElementById('wallpaperClearBtn').addEventListener('click',()=>{state.settings.wallpaper='';pushSetting('wallpaper','');saveState();applyWallpaper();toast('已恢复默认背景');});
-    document.addEventListener('keydown',event=>{if(event.key==='Escape'){settleConfirm(false);closeBrandSettings();closeHabitSettings();closePlanSettings();closeFitnessProfile();closeQuotePopup();closeQuoteSheet();closeMomentEdit();}});
+    document.addEventListener('keydown',event=>{if(event.key==='Escape'){settleConfirm(false);closeBrandSettings();closeHabitSettings();closePlanSettings();closeFitnessProfile();closeQuotePopup();closeQuoteSheet();closeMomentEdit();closeFab();}});
     document.addEventListener('click',event=>{
       const nav=event.target.closest('[data-nav]');if(nav)switchView(nav.dataset.nav);
       const quick=event.target.closest('[data-quick]');if(quick){switchView(quick.dataset.quick);setTimeout(()=>document.querySelector(`#view-${quick.dataset.quick} input:not([type="radio"])`)?.focus(),200);}
       const action=event.target.closest('[data-action]');if(!action)return;const id=action.dataset.id,type=action.dataset.action;
       if(type==='delete')deleteRecord(id);if(type==='toggle-task')toggleTask(id);
-      if(type==='habit-plus')updateHabit(id,'plus');if(type==='habit-minus')updateHabit(id,'minus');if(type==='habit-toggle')updateHabit(id,'toggle');if(type==='habit-quick')updateHabit(id,'quick');
+      if(type==='habit-plus')updateHabit(id,'plus');if(type==='habit-minus')updateHabit(id,'minus');if(type==='habit-toggle')updateHabit(id,'toggle');if(type==='habit-quick')updateHabit(id,'quick');if(type==='habit-day')setHabitDate(id,btn.dataset.date);
       if(type==='toggle-plan'){const item=state.settings.weeklyPlan.find(x=>x.id===id);if(item){item.done=!item.done;const saved=saveState();renderFitness();if(saved&&item.done)celebrate();}}
       if(type==='delete-habit-custom'){const habit=state.habits.find(h=>h.id===id);if(habit)askConfirm(LANG==='en'?`Delete the habit “${habit.name}” and all of its history?`:`确定删除习惯“${habit.name}”吗？历史打卡也会一起删除。`,'确认删除').then(ok=>{if(!ok)return;state.habits=state.habits.filter(h=>h.id!==id);if(HABIT_DEFS.some(def=>def.key===habit.key)){state.settings.hiddenHabitKeys=[...new Set([...(state.settings.hiddenHabitKeys||[]),habit.key])];}const saved=saveState();renderAll();renderHabitManageList();if(saved)toast('习惯已删除');});}
       if(type==='delete-plan'){const item=state.settings.weeklyPlan.find(x=>x.id===id);if(item)askConfirm(LANG==='en'?`Delete the plan “${item.title}”?`:`确定删除计划“${item.title}”吗？`,'确认删除').then(ok=>{if(!ok)return;state.settings.weeklyPlan=state.settings.weeklyPlan.filter(x=>x.id!==id);const saved=saveState();renderFitness();renderPlanManageList();if(saved)toast('计划已删除');});}
@@ -1465,7 +1531,7 @@ const _origSwitchView=switchView;switchView=function(view){_origSwitchView(view)
     window.addEventListener('storage',e=>{if(e.key!==STORAGE_KEY||!e.newValue)return;try{state=normalizeState(JSON.parse(e.newValue));renderAll();toast('另一个页面的数据已同步');}catch{}});
   }
 
-  function init(){const now=new Date(),weekdays=['星期日','星期一','星期二','星期三','星期四','星期五','星期六'];document.getElementById('todayLabel').textContent=LANG==='en'?new Intl.DateTimeFormat('en-US',{month:'long',day:'numeric',weekday:'long'}).format(now):`${now.getMonth()+1} 月 ${now.getDate()} 日 · ${weekdays[now.getDay()]}`;setDateDefaults();updateMoneyCategories();restoreDrafts();bindForms();setMoneyFlow(document.getElementById('moneyFlow')?.value||'expense');bindEvents();bindMomentEdit();enhanceDatePickers();bindDatePicker();renderAll();var initHash=location.hash.slice(1);if(['journal','moments','media','photos'].includes(initHash))initHash='journal';if(['planner','habits'].includes(initHash))initHash='schedule';;switchView(document.getElementById(`view-${initHash}`)?initHash:'dashboard');if(!dataCorrupted)saveState();pullAllRemote(function(ok){ if(ok){ flushPendingDeletes(); } var reshared=false; (state.moments||[]).forEach(function(m){ if(m.reshare){ delete m.reshare; pushMoment(m); reshared=true; } }); if(ok||reshared){ saveState(); renderAll(); } else if(ONLINE && !LOCAL_ONLY){ goLocalOnly('初次同步失败'); } });}
+  function init(){const now=new Date(),weekdays=['星期日','星期一','星期二','星期三','星期四','星期五','星期六'];document.getElementById('todayLabel').textContent=LANG==='en'?new Intl.DateTimeFormat('en-US',{month:'long',day:'numeric',weekday:'long'}).format(now):`${now.getMonth()+1} 月 ${now.getDate()} 日 · ${weekdays[now.getDay()]}`;setDateDefaults();updateMoneyCategories();restoreDrafts();bindForms();setMoneyFlow(document.getElementById('moneyFlow')?.value||'expense');bindEvents();bindMomentEdit();enhanceDatePickers();bindDatePicker();bindFab();bindHabitView();renderAll();var initHash=location.hash.slice(1);if(['journal','moments','media','photos'].includes(initHash))initHash='journal';if(['planner','habits'].includes(initHash))initHash='schedule';;switchView(document.getElementById(`view-${initHash}`)?initHash:'dashboard');if(!dataCorrupted)saveState();pullAllRemote(function(ok){ if(ok){ dropMarkedLocal(); flushPendingDeletes(function(){ dropMarkedLocal(); saveState(); renderAll(); }); } var reshared=false; (state.moments||[]).forEach(function(m){ if(m.reshare){ delete m.reshare; pushMoment(m); reshared=true; } }); if(ok||reshared){ saveState(); renderAll(); } else if(ONLINE && !LOCAL_ONLY){ goLocalOnly('初次同步失败'); } });}
   startI18n();
   document.addEventListener('DOMContentLoaded',init);
 })();
