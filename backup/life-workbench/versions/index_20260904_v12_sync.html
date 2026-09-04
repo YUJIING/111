@@ -106,7 +106,7 @@
 
       <section data-page-node-id="4cCWKVjo7MugUG8mIdgn8y" class="view" data-title="记账理财" id="view-money">
         <div data-page-node-id="LLyxJ7TdTK3DEEinsdjMzB" class="module-alert" id="moneyAlert"></div>
-        <div data-page-node-id="dO6F61xDrrdB1h0GpvtomY" class="section-actions"><button data-page-node-id="YDcmg7YYDqrbrkaMXMDWpm" class="btn ghost" data-action="export-money"><svg data-page-node-id="ngfJZxbxTgFFkft46ilkSA"><use data-page-node-id="4iBwdLQ4jobvLvkwWmP4wX" href="#i-chart"/></svg><!--pnid:O1b2npahCrIvKfSDkPwSaQ-->导出 Excel</button><button class="btn ghost" data-action="open-bill-import"><svg><use href="#i-upload"/></svg>导入账单</button></div>
+        <div data-page-node-id="dO6F61xDrrdB1h0GpvtomY" class="section-actions"><button data-page-node-id="YDcmg7YYDqrbrkaMXMDWpm" class="btn ghost" data-action="export-money"><svg data-page-node-id="ngfJZxbxTgFFkft46ilkSA"><use data-page-node-id="4iBwdLQ4jobvLvkwWmP4wX" href="#i-chart"/></svg><!--pnid:O1b2npahCrIvKfSDkPwSaQ-->导出 Excel</button></div>
         <div data-page-node-id="Hk9Ds5jqgUxmVE7sCTzaXB" class="module-layout">
           <article data-page-node-id="dI6GEW4qN3GEyPWdCFPmFn" class="panel form-panel"><div data-page-node-id="ug5woqxhAgvO8BuGh6b6Mw" class="panel-head"><div data-page-node-id="hjoGGC3sB7m9wg1AtJRgmB"><p data-page-node-id="nWuMbAO4o4yTfR7WF4USyt" class="eyebrow"><!--pnid:D9JJtKmSxDyG2rv8KSFGNd-->收支手账</p><h2 data-page-node-id="tSdYMjrdiLMZjs809roZK4"><!--pnid:DM3v5V4dk5xqHhUkeTgeTx-->记一笔账</h2></div><span data-page-node-id="cbmalzuWaAm7NJHoF7akn2" class="draft-status" data-draft-for="moneyForm"><!--pnid:nJHyOX1PWKCGNerZOOLhjZ-->草稿自动保存</span></div><form data-page-node-id="M6DDTH6lD7nIHCPPgg2xJv" data-draft="moneyForm" id="moneyForm">
             <div data-page-node-id="sIBQxKrsPnGW7od9TVOFHr" class="money-typebar" id="moneyTypeBar"><input data-page-node-id="0ASMIZHkhoB6cXJu2y59PV" id="moneyFlow" name="flow" type="hidden" value="expense"><span data-page-node-id="03P7CmX51DZW3jZG4oVJd4" class="type-main" id="moneyTypeMain"><!--pnid:WPIa5evkguKkdzgeYR5wr1-->支出</span><button data-page-node-id="GNDzTlCuT1VSCa83rYpNql" class="type-switch" id="moneyTypeSwitch" type="button"><!--pnid:GYHeGUwirfbjyFSaIoq7Zu-->要记收入</button></div>
@@ -1342,80 +1342,6 @@ const _origSwitchView=switchView;switchView=function(view){_origSwitchView(view)
     const html=`<html><head><meta charset="UTF-8"></head><body><table border="1"><tr>${headers.map(h=>`<th>${escapeHtml(h)}</th>`).join('')}</tr>${rows.map(row=>`<tr>${row.map(v=>`<td>${escapeHtml(v)}</td>`).join('')}</tr>`).join('')}</table></body></html>`;downloadBlob(html,'application/vnd.ms-excel',`${name}-${isoDate()}.xls`);toast('Excel 已导出');
   }
 
-  /* ================= 账单导入（微信 / 支付宝 CSV） ================= */
-  var _billImport={rows:[]};
-  function openBillImport(){document.getElementById('billImport').hidden=false;resetBillImport();}
-  function closeBillImport(){document.getElementById('billImport').hidden=true;resetBillImport();}
-  function resetBillImport(){_billImport.rows=[];var f=document.getElementById('billImportFile');if(f)f.value='';document.getElementById('billImportStatus').style.display='none';document.getElementById('billImportPreview').style.display='none';document.getElementById('billImportActions').style.display='none';document.getElementById('billImportDropText').textContent='点这里选择账单 .csv 文件';}
-  function setBillStatus(msg,good){var box=document.getElementById('billImportStatus');box.style.display='';box.className='module-alert'+(good?' good':'');box.innerHTML='<div><strong>'+msg+'</strong></div>';}
-  function readBillFile(file){return new Promise((resolve,reject)=>{var reader=new FileReader();reader.onerror=()=>reject(new Error('文件读取失败'));reader.onload=()=>{var arr=new Uint8Array(reader.result);var utf8;try{utf8=new TextDecoder('utf-8').decode(arr);}catch(e){utf8='';}var bad=(utf8.match(/\uFFFD/g)||[]).length;var text=utf8;if(bad>10){try{text=new TextDecoder('gbk').decode(arr);}catch(e2){text=utf8;}}resolve(text.replace(/^\uFEFF/,''));};reader.readAsArrayBuffer(file);});}
-  function splitCsvLines(text){var lines=[],line='',q=false;for(var i=0;i<text.length;i++){var c=text[i];if(q){if(c==='"'){if(text[i+1]==='"'){line+='"';i++;}else q=false;}else line+=c;}else if(c==='"')q=true;else if(c==='\n'){if(line.trim())lines.push(line);line='';}else if(c==='\r'){}else line+=c;}if(line.trim())lines.push(line);return lines;}
-  function csvRow(line){var cells=[],c='',q=false;for(var i=0;i<line.length;i++){var ch=line[i];if(q){if(ch==='"'){if(line[i+1]==='"'){c+='"';i++;}else q=false;}else c+=ch;}else if(ch==='"')q=true;else if(ch===','){cells.push(c);c='';}else c+=ch;}cells.push(c);return cells.map(x=>String(x).trim());}
-  function guessMoneyCategory(text,flow){if(!text)return flow==='income'?'其他':'其他';var eat=['饭','餐','食','面','粉','外卖','美团','饿了么','早餐','午餐','晚餐','夜宵','咖啡','奶茶','茶','甜品','水果','零食','超市','便利店','买菜','菜市场','火锅','烧烤','餐厅','美食','果','面包'];var trans=['交通','滴滴','出租','公交','地铁','高铁','火车','机票','加油','停车','打车','车票','充值(交通)','共享单车','顺风车'];var shop=['淘宝','天猫','京东','拼多多','唯品会','购物','衣服','鞋','包','百货','日用品','美妆','数码','书店','消费','下单','商城'];var fun=['电影','游戏','演出','KTV','娱乐','酒吧','门票','会员','爱奇艺','腾讯视频','视频会员','音乐','抖音','充话费(娱乐)','球'];var home=['房租','物业','水电','燃气','租房','维修','缴费'];var med=['医院','药','医生','诊所','挂号','体检','药店','牙','看病'];var study=['书','课程','学费','学习','考试','报名','文具','培训','教材','知识'];if(flow==='expense'){if(home.some(k=>text.indexOf(k)>=0))return'房租';if(eat.some(k=>text.indexOf(k)>=0))return'吃饭';if(med.some(k=>text.indexOf(k)>=0))return'看病';if(study.some(k=>text.indexOf(k)>=0))return'学习';if(trans.some(k=>text.indexOf(k)>=0))return'交通';if(fun.some(k=>text.indexOf(k)>=0))return'娱乐';if(shop.some(k=>text.indexOf(k)>=0))return'购物';return'其他';}var wage=['工资','薪资','薪','代发','公司','企业','工资代发'];var bonus=['奖金','红包','绩效','年终'];var part=['兼职','劳务','报酬','稿费','零工','打赏','服务费'];var invest=['理财','利息','收益','基金','余额宝','零钱通','股票','分红','退款'];if(wage.some(k=>text.indexOf(k)>=0))return'工资';if(bonus.some(k=>text.indexOf(k)>=0))return'奖金';if(part.some(k=>text.indexOf(k)>=0))return'兼职';if(invest.some(k=>text.indexOf(k)>=0))return'理财';return'其他';}
-  function parseBillRows(){var text=_billImport.text,rows=splitCsvLines(text).map(csvRow);if(!rows.length){setBillStatus('文件是空的，或没有读到内容',false);return;}
-    var idx={time:-1,flow:-1,amount:-1,kind:-1,name:-1,note:-1};for(var i=0;i<rows.length;i++){var head=rows[i];
-      var tIdx=head.findIndex(h=>h==='付款时间');if(tIdx<0)tIdx=head.findIndex(h=>h==='交易创建时间');if(tIdx<0)tIdx=head.findIndex(h=>h==='交易时间');if(tIdx>=0)idx.time=tIdx;
-      if(idx.flow<0&&head.some(h=>h==='收/支'))idx.flow=head.indexOf('收/支');
-      if(idx.amount<0&&head.some(h=>h.indexOf('金额')>=0))idx.amount=head.findIndex(h=>h.indexOf('金额')>=0);
-      if(head.some(h=>h==='商品'))idx.kind=head.indexOf('商品');
-      if(head.some(h=>h==='商品名称'))idx.name=head.indexOf('商品名称');
-      if(head.some(h=>h==='交易对方'))idx.note=head.indexOf('交易对方');
-      if(head.some(h=>h==='备注'))idx.note=head.indexOf('备注');
-      if(idx.time>=0&&idx.flow>=0&&idx.amount>=0){break;}}
-    if(idx.time<0||idx.flow<0||idx.amount<0){setBillStatus('没认出这是微信 / 支付宝的账单表头。请确认选的是「导出账单」得到的 .csv 文件。',false);return;}
-    _billImport.mode=document.getElementById('billImportMode').value;
-    var out=[];for(var r=i+1;r<rows.length;r++){var row=rows[r];if(!row[idx.time]||!row[idx.amount])continue;
-      var flowRaw=row[idx.flow]||'';if(flowRaw!=='收入'&&flowRaw!=='支出')continue;if(_billImport.mode==='expense'&&flowRaw!=='支出')continue;
-      var flow=flowRaw==='收入'?'income':'expense';
-      var amt=parseFloat(String(row[idx.amount]).replace(/[¥,\s]/g,''))||0;if(!(amt>0))continue;
-      var dateRaw=String(row[idx.time]);var m=dateRaw.match(/(\d{4})[-/](\d{1,2})[-/](\d{1,2})/);if(!m)continue;var date=m[1]+'-'+String(Number(m[2])).padStart(2,'0')+'-'+String(Number(m[3])).padStart(2,'0');
-      var kind=idx.name>=0?row[idx.name]:(idx.kind>=0?row[idx.kind]:'');var counterpart=idx.note>=0?row[idx.note]:'';var note=kind&&kind!=='/'&&kind!=='暂无'?kind:(counterpart&&counterpart!=='/'?counterpart:'');
-      var catText=(note+' '+(kind||'')+' '+(counterpart||'')).trim();
-      var category=guessMoneyCategory(catText,flow);
-      out.push({date:date,flow:flow,amount:amt,note:note||'账单导入',category:category});
-    }
-    if(!out.length){setBillStatus('表格里没有可导入的支出 / 收入流水（可能全是退款、转账或未成功交易）。',false);return;}
-    _billImport.rows=dedupeBillRows(out);
-    renderBillPreview();
-  }
-  function billKey(row){return row.date+'|'+row.flow+'|'+Math.round(row.amount*100)+'|'+String(row.note||'').replace(/\s/g,'');}
-  function dedupeBillRows(rows){var seen=new Set(),result=[];rows.forEach(row=>{var key=billKey(row);var dup=seen.has(key)||state.records.some(r=>r.type==='money'&&billKey({date:r.date,flow:r.data.flow,amount:Number(r.data.amount||0),note:r.data.note||''})===key);if(dup){row._dup=true;return;}seen.add(key);result.push(row);});return result;}
-  function renderBillPreview(){var rows=_billImport.rows,_new=rows.filter(r=>!r._dup),_skip=rows.length-_new.length;
-    var html='<div class="bill-summary">将新增 <b style="color:var(--plum)">'+_new.length+'</b> 笔'+(document.getElementById('billImportMode').value==='expense'?'支出':'收支')+'，其中 '+_skip+' 笔与已有记录重复，会自动跳过。</div>';
-    html+='<table><thead><tr><th></th><th>日期</th><th>收/支</th><th>金额</th><th>分类</th><th>备注</th></tr></thead><tbody>';
-    rows.slice(0,120).forEach(row=>{var cls=row._dup?'row-skip':'row-new';html+='<tr class="'+cls+'"><td>'+(row._dup?'跳过':'新增')+'</td><td>'+escapeHtml(row.date)+'</td><td>'+(row.flow==='income'?'收入':'支出')+'</td><td>'+money(row.amount)+'</td><td>'+escapeHtml(t(row.category))+'</td><td class="note-line">'+escapeHtml(row.note)+'</td></tr>';});
-    html+='</tbody></table>';if(rows.length>120)html+='<div class="bill-summary" style="padding:8px">…只显示前 120 笔，确认后全部导入。</div>';
-    document.getElementById('billImportPreview').innerHTML=html;document.getElementById('billImportPreview').style.display='';
-    var acts=document.getElementById('billImportActions');acts.style.display='';var go=document.getElementById('billImportGo');go.disabled=!_new.length;go.textContent=_new.length?'确认导入 '+_new.length+' 笔流水':'没有可导入的新流水';
-    if(!_new.length){setBillStatus('这些流水之前都记过了，没有新的可导入。',false);}
-  }
-  function confirmBillImport(){var rows=_billImport.rows.filter(r=>!r._dup);if(!rows.length){closeBillImport();toast('没有新的流水可导入');return;}
-    askConfirm('将把 '+rows.length+' 笔流水加入记账。这会写进本地数据（在线时会同步到云端表）。确认导入吗？','确认导入').then(ok=>{if(!ok)return;
-      var now=Date.now();rows.forEach((row,offset)=>{
-        var rec={id:uid(),type:'money',date:row.date,createdAt:now+offset,sample:false,data:{flow:row.flow,amount:row.amount,category:row.category,note:row.note}};
-        state.records.push(rec);pushMoney(rec);
-        state.settings.recordsSinceExport=Number(state.settings.recordsSinceExport||0)+1;state.settings.moneySinceExport=Number(state.settings.moneySinceExport||0)+1;
-      });
-      var saved=saveState(true);renderAll();closeBillImport();
-      if(saved)toast('已导入 '+rows.length+' 笔流水');else toast('保存失败，请重试');
-    });}
-  function bindBillImport(){
-    document.addEventListener('click',function(e){
-      var b=e.target.closest('[data-action="open-bill-import"]');if(b){openBillImport();return;}
-      if(e.target.closest('#billImportClose')||e.target.closest('#billImportCancel2')){closeBillImport();return;}
-      if(e.target.id==='billImport')closeBillImport();
-      if(e.target.closest('#billImportGo'))confirmBillImport();
-    });
-    var drop=document.getElementById('billImportDrop'),input=document.getElementById('billImportFile');
-    if(!drop)return;
-    input.addEventListener('change',function(){var f=input.files&&input.files[0];if(f)handleBillFile(f);});
-    drop.addEventListener('click',function(){input.click();});
-    drop.addEventListener('dragover',function(e){e.preventDefault();drop.classList.add('drag');});
-    drop.addEventListener('dragleave',function(){drop.classList.remove('drag');});
-    drop.addEventListener('drop',function(e){e.preventDefault();drop.classList.remove('drag');var f=e.dataTransfer&&e.dataTransfer.files&&e.dataTransfer.files[0];if(f)handleBillFile(f);});
-    ['billImportSource','billImportMode'].forEach(id=>document.getElementById(id).addEventListener('change',function(){if(_billImport.text)parseBillRows();}));
-  }
-  function handleBillFile(file){if(file.size>10*1024*1024){setBillStatus('文件超过 10MB，可能不是账单文件',false);return;}readBillFile(file).then(text=>{_billImport.text=text;if(!splitCsvLines(text).length){setBillStatus('文件里没有内容，请重新导出账单。',false);return;}document.getElementById('billImportDropText').textContent=file.name+' · 已读取，正在解析…';parseBillRows();}).catch(err=>setBillStatus(err.message||'文件读取失败',false));}
   function compressCover(file){return new Promise((resolve,reject)=>{const reader=new FileReader();reader.onerror=()=>reject(new Error('封面读取失败'));reader.onload=()=>{const image=new Image();image.onerror=()=>reject(new Error('封面格式不支持'));image.onload=()=>{const maxWidth=360,maxHeight=480,ratio=Math.min(maxWidth/image.width,maxHeight/image.height,1),canvas=document.createElement('canvas');canvas.width=Math.round(image.width*ratio);canvas.height=Math.round(image.height*ratio);canvas.getContext('2d').drawImage(image,0,0,canvas.width,canvas.height);resolve(canvas.toDataURL('image/jpeg',.72));};image.src=reader.result;};reader.readAsDataURL(file);});}
 
   function resetMediaCover(){pendingMediaCover='';const input=document.getElementById('mediaCoverInput'),preview=document.getElementById('mediaCoverPreview');input.value='';input.closest('.cover-upload').classList.remove('has-cover');preview.style.backgroundImage='';}
@@ -1571,7 +1497,7 @@ const _origSwitchView=switchView;switchView=function(view){_origSwitchView(view)
     document.getElementById('wallpaperUploadBtn').addEventListener('click',()=>document.getElementById('wallpaperInput').click());
     document.getElementById('wallpaperInput').addEventListener('change',async e=>{const[file]=e.target.files;if(!file)return;if(file.size>12*1024*1024){toast('背景图请控制在 12MB 以内');e.target.value='';return;}try{const img=await compressImage(file,1600,1600);state.settings.wallpaper=img;pushSetting('wallpaper',img);saveState();applyWallpaper();toast('工作台背景已更新');}catch(error){toast(error.message);}e.target.value='';});
     document.getElementById('wallpaperClearBtn').addEventListener('click',()=>{state.settings.wallpaper='';pushSetting('wallpaper','');saveState();applyWallpaper();toast('已恢复默认背景');});
-    document.addEventListener('keydown',event=>{if(event.key==='Escape'){settleConfirm(false);closeBrandSettings();closeHabitSettings();closePlanSettings();closeFitnessProfile();closeQuotePopup();closeQuoteSheet();closeMomentEdit();closeFab();closeBillImport();}});
+    document.addEventListener('keydown',event=>{if(event.key==='Escape'){settleConfirm(false);closeBrandSettings();closeHabitSettings();closePlanSettings();closeFitnessProfile();closeQuotePopup();closeQuoteSheet();closeMomentEdit();closeFab();}});
     document.addEventListener('click',event=>{
       const nav=event.target.closest('[data-nav]');if(nav)switchView(nav.dataset.nav);
       const quick=event.target.closest('[data-quick]');if(quick){switchView(quick.dataset.quick);setTimeout(()=>document.querySelector(`#view-${quick.dataset.quick} input:not([type="radio"])`)?.focus(),200);}
@@ -1605,22 +1531,13 @@ const _origSwitchView=switchView;switchView=function(view){_origSwitchView(view)
     window.addEventListener('storage',e=>{if(e.key!==STORAGE_KEY||!e.newValue)return;try{state=normalizeState(JSON.parse(e.newValue));renderAll();toast('另一个页面的数据已同步');}catch{}});
   }
 
-  function init(){const now=new Date(),weekdays=['星期日','星期一','星期二','星期三','星期四','星期五','星期六'];document.getElementById('todayLabel').textContent=LANG==='en'?new Intl.DateTimeFormat('en-US',{month:'long',day:'numeric',weekday:'long'}).format(now):`${now.getMonth()+1} 月 ${now.getDate()} 日 · ${weekdays[now.getDay()]}`;setDateDefaults();updateMoneyCategories();restoreDrafts();bindForms();setMoneyFlow(document.getElementById('moneyFlow')?.value||'expense');bindEvents();bindMomentEdit();enhanceDatePickers();bindDatePicker();bindFab();bindHabitView();bindBillImport();renderAll();var initHash=location.hash.slice(1);if(['journal','moments','media','photos'].includes(initHash))initHash='journal';if(['planner','habits'].includes(initHash))initHash='schedule';;switchView(document.getElementById(`view-${initHash}`)?initHash:'dashboard');if(!dataCorrupted)saveState();pullAllRemote(function(ok){ if(ok){ dropMarkedLocal(); flushPendingDeletes(function(){ dropMarkedLocal(); saveState(); renderAll(); }); } var reshared=false; (state.moments||[]).forEach(function(m){ if(m.reshare){ delete m.reshare; pushMoment(m); reshared=true; } }); if(ok||reshared){ saveState(); renderAll(); } else if(ONLINE && !LOCAL_ONLY){ goLocalOnly('初次同步失败'); } });}
+  function init(){const now=new Date(),weekdays=['星期日','星期一','星期二','星期三','星期四','星期五','星期六'];document.getElementById('todayLabel').textContent=LANG==='en'?new Intl.DateTimeFormat('en-US',{month:'long',day:'numeric',weekday:'long'}).format(now):`${now.getMonth()+1} 月 ${now.getDate()} 日 · ${weekdays[now.getDay()]}`;setDateDefaults();updateMoneyCategories();restoreDrafts();bindForms();setMoneyFlow(document.getElementById('moneyFlow')?.value||'expense');bindEvents();bindMomentEdit();enhanceDatePickers();bindDatePicker();bindFab();bindHabitView();renderAll();var initHash=location.hash.slice(1);if(['journal','moments','media','photos'].includes(initHash))initHash='journal';if(['planner','habits'].includes(initHash))initHash='schedule';;switchView(document.getElementById(`view-${initHash}`)?initHash:'dashboard');if(!dataCorrupted)saveState();pullAllRemote(function(ok){ if(ok){ dropMarkedLocal(); flushPendingDeletes(function(){ dropMarkedLocal(); saveState(); renderAll(); }); } var reshared=false; (state.moments||[]).forEach(function(m){ if(m.reshare){ delete m.reshare; pushMoment(m); reshared=true; } }); if(ok||reshared){ saveState(); renderAll(); } else if(ONLINE && !LOCAL_ONLY){ goLocalOnly('初次同步失败'); } });}
   startI18n();
   document.addEventListener('DOMContentLoaded',init);
 })();
 
   </script>
 <div class="settings-backdrop" hidden id="datePickerBackdrop"><div aria-modal="true" class="settings-sheet dp-sheet" role="dialog" style="max-width:420px"><div class="settings-head"><div><p class="eyebrow">选择日期</p><h2 id="dpMonthLabel">选择日期</h2></div><button aria-label="关闭" class="sheet-close" id="dpClose" type="button">×</button></div><div class="dp-nav-row"><button aria-label="上个月" class="dp-nav" id="dpPrev" type="button">‹</button><button class="dp-go-today" id="dpTodayBtn" type="button">回到今天</button><button aria-label="下个月" class="dp-nav" id="dpNext" type="button">›</button></div><div class="dp-week" id="dpWeek"></div><div class="dp-grid" id="dpGrid"></div></div></div>
-<style>.bill-drop{display:flex;align-items:center;justify-content:center;gap:8px;min-height:56px;border:1.5px dashed rgba(120,100,90,.45);border-radius:12px;background:var(--card);color:#8a7f72;font-size:14px;cursor:pointer;transition:.18s;margin:0 0 12px}.bill-drop.drag{background:var(--sage-light,#eef3ea);border-color:var(--plum);color:var(--plum)}.bill-preview{max-height:230px;overflow:auto;border:1px solid rgba(120,100,90,.18);border-radius:10px;background:var(--card);margin:0 0 12px}.bill-preview table{width:100%;border-collapse:collapse;font-size:12px}.bill-preview th,.bill-preview td{padding:6px 8px;text-align:left;white-space:nowrap;border-bottom:1px solid rgba(120,100,90,.1)}.bill-preview th{position:sticky;top:0;background:#f2ede6;color:#7c7266;font-weight:500}.bill-preview td .skip{color:#c2b7a9}.bill-preview .row-new td:first-child{color:var(--plum);font-weight:500}.bill-preview .row-skip td:first-child{color:#b8ae9f}.bill-preview .note-line{color:#a3978a}.bill-summary{font-size:13px;color:#7c7266;margin:0 0 10px;line-height:1.7}</style>
-<div class="settings-backdrop" hidden id="billImport"><section aria-labelledby="billImportTitle" aria-modal="true" class="settings-sheet" role="dialog" style="max-width:560px"><div class="settings-head"><div><p class="eyebrow">记账流水</p><h2 id="billImportTitle">导入微信 / 支付宝账单</h2></div><button aria-label="关闭" class="sheet-close" id="billImportClose" type="button">×</button></div>
-<p style="font-size:13px;color:var(--muted,#9a9188);margin:2px 0 14px;line-height:1.6">在微信或支付宝里「导出账单」，把下载到的 .csv 文件选进来。系统会识别平台、按交易时间逐条整理成账，并跳过和已有记录重复的那几笔。只有你自己能看到和导入这些数据，不会上传。</p>
-<div class="form-row"><label class="field"><span>账单来自哪个平台</span><select id="billImportSource"><option value="wechat">微信支付账单</option><option value="alipay">支付宝账单</option></select></label><label class="field"><span>收支口径</span><select id="billImportMode"><option value="flow">按账单「收 / 支」记录</option><option value="expense">只记支出，其余跳过</option></select></label></div>
-<label class="bill-drop" id="billImportDrop"><input type="file" id="billImportFile" accept=".csv,text/csv,.txt" style="position:absolute;width:1px;height:1px;opacity:0"><span id="billImportDropText">点这里选择账单 .csv 文件</span></label>
-<div class="module-alert" id="billImportStatus" style="display:none"></div>
-<div class="bill-preview" id="billImportPreview" style="display:none"></div>
-<div class="sheet-actions" id="billImportActions" style="display:none"><button class="btn ghost" id="billImportCancel2" type="button">关闭</button><button class="btn primary" id="billImportGo" type="button">确认导入所选流水</button></div>
-</section></div>
 <div class="confirm-modal" hidden id="confirmModal"><div class="confirm-card"><p id="confirmText"></p><div class="confirm-actions"><button class="btn ghost" id="confirmCancel" type="button">取消</button><button class="btn danger" id="confirmOk" type="button">确认</button></div></div></div>
 </body>
 </html>
